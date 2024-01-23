@@ -1,6 +1,7 @@
 #include "SpriteComponent.h"
 #include "Actor.h"
 #include "Game.h"
+#include "Texture.h"
 
 SpriteComponent::SpriteComponent(Actor* ownerP, Texture& textureP, int drawOrderP):
 	Component(ownerP),
@@ -23,9 +24,9 @@ void SpriteComponent::setTexture(const Texture& textureP)
 	texture.updateInfo(texWidth, texHeight);
 }
 
-void SpriteComponent::draw(Renderer& renderer)
+void SpriteComponent::draw(IRenderer& renderer)
 {
 	Vector2 origin{ texWidth / 2.f, texHeight / 2.f };
-	renderer.drawSprite(owner, texture, Rectangle::nullRect, origin, Renderer::Flip::None);
+	renderer.drawSprite(owner, texture, Rectangle::nullRect, origin, IRenderer::Flip::None);
 }
 

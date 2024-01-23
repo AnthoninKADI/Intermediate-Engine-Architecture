@@ -3,8 +3,9 @@
 #include "Actor.h"
 #include "SpriteComponent.h"
 #include "Window.h"
-#include "Renderer.h"
+#include "RendererSDL.h"
 #include "Vector2.h"
+#include "RendererOGL.h"
 #include "Astroid.h"
 using std::vector;
 
@@ -35,7 +36,8 @@ public:
 	void addActor(Actor* actor);
 	void removeActor(Actor* actor);
 
-	Renderer& getRenderer() { return renderer; }
+	RendererOGL& getRenderer() { return renderer; }
+	IRenderer::Type type() { return IRenderer::Type::SDL; }
 	// Game specific
 	vector<Astroid*>& getAstroids();
 	void addAstroid(Astroid* astroid);
@@ -48,7 +50,7 @@ private:
 
 	bool isRunning;
 	Window window;
-	Renderer renderer;
+	RendererOGL renderer;
 
 	bool isUpdatingActors;
 	vector<Actor*> actors;

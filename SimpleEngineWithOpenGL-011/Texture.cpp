@@ -18,7 +18,7 @@ void Texture::unload()
 	}
 }
 
-bool Texture::load(Renderer& renderer, const string& filenameP)
+bool Texture::load(IRenderer& renderer, const string& filenameP)
 {
 	filename = filenameP;
 	// Load from file
