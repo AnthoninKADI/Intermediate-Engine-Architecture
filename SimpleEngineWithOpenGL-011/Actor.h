@@ -2,6 +2,7 @@
 #include <vector>
 #include "Vector2.h"
 #include <SDL_stdinc.h>
+#include "Matrix4.h"
 using std::vector;
 
 class Game;
@@ -26,11 +27,13 @@ public:
 	const Vector2 getPosition() const { return position; }
 	const float getScale() const { return scale; }
 	const float getRotation() const { return rotation; }
+	const Matrix4& getWorlTransform() const { return worldTransform; }
 
 	void setPosition(Vector2 positionP);
 	void setScale(float scaleP);
 	void setRotation(float rotationP);
 	void setState(ActorState stateP);
+	void computeWorldTransform();
 
 	Vector2 getForward() const;
 
@@ -41,6 +44,7 @@ public:
 	virtual void updateActor(float dt);
 	void addComponent(Component* component);
 	void removeComponent(Component* component);
+	
 
 private:
 	Game& game;
@@ -48,6 +52,8 @@ private:
 	Vector2 position;
 	float scale;
 	float rotation;	// Rotation in radians
+	Matrix4 worldTransform;
+	bool mustRecomputeWorldTransform;
 
 	vector<Component*> components;
 };

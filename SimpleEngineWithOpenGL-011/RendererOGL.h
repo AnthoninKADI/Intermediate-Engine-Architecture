@@ -34,4 +34,5 @@ private:
 	Shader* shader;
 	SDL_GLContext context;
 	std::vector<class SpriteComponent*> sprites;
+	Matrix4 viewProj;
 };

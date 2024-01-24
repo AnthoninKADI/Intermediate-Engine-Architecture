@@ -3,7 +3,6 @@
   Astroid.cpp
   BackgroundSpriteComponent.cpp
   Game.cpp
-  IRenderer.cpp
   Laser.cpp
   Main.cpp
   RendererOGL.cpp
@@ -14,4 +13,5 @@
   Texture.cpp
 C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Texture.cpp(35,53): error C2039: 'toSDLRenderer': is not a member of 'IRenderer'
 C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\IRenderer.h(5,7): message : see declaration of 'IRenderer'
+  Vector3.cpp
   Generating Code...
