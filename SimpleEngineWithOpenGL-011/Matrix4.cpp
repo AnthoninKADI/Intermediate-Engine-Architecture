@@ -1,4 +1,5 @@
 #include "Matrix4.h"
+#include "Quaternion.h"
 
 static float m4Ident[4][4] =
 {
@@ -122,3 +123,4 @@ void Matrix4::invert()
 		}
 	}
 }
+

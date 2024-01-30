@@ -17,69 +17,12 @@ bool Game::initialize()
 
 void Game::load()
 {
-	// Load textures
-	Assets::loadTexture(renderer, "Res\\Ship01.png", "Ship01");
-	Assets::loadTexture(renderer, "Res\\Ship02.png", "Ship02");
-	Assets::loadTexture(renderer, "Res\\Ship03.png", "Ship03");
-	Assets::loadTexture(renderer, "Res\\Ship04.png", "Ship04");
-	Assets::loadTexture(renderer, "Res\\Farback01.png", "Farback01");
-	Assets::loadTexture(renderer, "Res\\Farback02.png", "Farback02");
-	Assets::loadTexture(renderer, "Res\\Stars.png", "Stars");
-	Assets::loadTexture(renderer, "Res\\Astroid.png", "Astroid");
-	Assets::loadTexture(renderer, "Res\\Ship.png", "Ship");
-	Assets::loadTexture(renderer, "Res\\Laser.png", "Laser");
-	Assets::loadShader("SimpleEngineWithOpenGL-011\\Res\\Shaders\\Basic.vert", "Res\\Shaders\\Basic.frag", "", "", "", "Basic");
-	Assets::loadShader("SimpleEngineWithOpenGL-011\\Res\\Shaders\\Transform.vert", "Res\\Shaders\\Basic.frag", "", "", "", "Transform");
-	Assets::loadShader("SimpleEngineWithOpenGL-011\\Res\\Shaders\\Sprite.vert", "Res\\Shaders\\Sprite.frag", "", "", "", "Sprite");
+	Assets::loadTexture(renderer, "Res\Textures\HealthBar.png", "HealthBar");
+	Assets::loadShader("Res\Shaders\Sprite.vert", "Res\Shaders\Sprite.frag", "", "", "", "Sprite");
 
-	// Single sprite
-	/*
-	Actor* actor = new Actor();
-	SpriteComponent* sprite = new SpriteComponent(actor, Assets::getTexture("Ship01"));
-	actor->setPosition(Vector2{ 100, 100 });
-	*/
-
-	// Animated sprite
-	/*
-	vector<Texture*> animTextures {
-		&Assets::getTexture("Ship01"),
-		&Assets::getTexture("Ship02"),
-		&Assets::getTexture("Ship03"),
-		&Assets::getTexture("Ship04"),
-	};
-	Actor* ship = new Actor();
-	AnimSpriteComponent* animatedSprite = new AnimSpriteComponent(ship, animTextures);
-	ship->setPosition(Vector2{ 100, 300 });
-	*/
-
-	// Controlled ship
-	Ship* ship = new Ship();
-	ship->setPosition(Vector2{ 100, 300 });
-
-	// Background
-	// Create the "far back" background
-	vector<Texture*> bgTexsFar {
-		&Assets::getTexture("Farback01"),
-		&Assets::getTexture("Farback02")
-	};
-	Actor* bgFar = new Actor();
-	BackgroundSpriteComponent* bgSpritesFar = new BackgroundSpriteComponent(bgFar, bgTexsFar);
-	bgSpritesFar->setScrollSpeed(-100.0f);
-
-	// Create the closer background
-	Actor* bgClose = new Actor();
-	std::vector<Texture*> bgTexsClose {
-		&Assets::getTexture("Stars"),
-		&Assets::getTexture("Stars")
-	};
-	BackgroundSpriteComponent* bgSpritesClose = new BackgroundSpriteComponent(bgClose, bgTexsClose, 50);
-	bgSpritesClose->setScrollSpeed(-200.0f);
-	
-	const int astroidNumber = 20;
-	for (int i = 0; i < astroidNumber; ++i)
-	{
-		new Astroid();
-	}
+	Actor* ui = new Actor();
+	ui->setPosition(Vector3(350.0f, 350.0f, 0.0f));
+	SpriteComponent* sc = new SpriteComponent(ui, Assets::getTexture("HealthBar"));
 }
 
 void Game::processInput()

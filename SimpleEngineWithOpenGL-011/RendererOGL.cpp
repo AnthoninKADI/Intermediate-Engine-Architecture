@@ -6,15 +6,17 @@
 #include "SpriteComponent.h"
 #include "Assets.h"
 #include "Actor.h"
+#include "MeshComponent.h"
 
 #include <SDL_image.h>
 
 RendererOGL::RendererOGL():
 	window(nullptr), 
-	vertexArray(nullptr), 
-	context(nullptr), 
-	shader(nullptr),
-	viewProj(Matrix4::createSimpleViewProj(WINDOW_WIDTH, WINDOW_HEIGHT))
+	context(nullptr),
+	spriteVertexArray(nullptr), 
+	spriteViewProj(Matrix4::createSimpleViewProj(WINDOW_WIDTH, WINDOW_HEIGHT)),
+	view(Matrix4::createLookAt(Vector3::zero, Vector3::unitX, Vector3::unitZ)),
+	projection(Matrix4::createPerspectiveFOV(Maths::toRadians(70.0f), WINDOW_WIDTH, WINDOW_HEIGHT, 25.0f, 10000.0f))
 {
 }
 
@@ -39,6 +41,8 @@ bool RendererOGL::initialize(Window& windowP)
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	// Force OpenGL to use hardware acceleration
 	SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL,1);
+	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+	// Depth buffering
 
 	context = SDL_GL_CreateContext(windowP.getSDLWindow());
 	glewExperimental = GL_TRUE;
@@ -57,10 +61,7 @@ bool RendererOGL::initialize(Window& windowP)
 		return false;
 	}
 
-	vertexArray = new VertexArray(vertices, 4, indices, 6);
-	shader = &Assets::getShader("Basic");
-	shader = &Assets::getShader("Transform");
-	shader = &Assets::getShader("Sprite");
+	spriteVertexArray = new VertexArray(spriteVertices, 4, indices, 6);
 	return true;
 }
 
@@ -68,19 +69,13 @@ void RendererOGL::beginDraw()
 {
 	glClearColor(0.45f, 0.45f, 1.0f, 1.0f);
 	// Clear the color buffer
-	glClear(GL_COLOR_BUFFER_BIT);
-	// Enable alpha blending on the color buffer
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	// Active shader and vertex array
-	shader->use();
-	shader->setMatrix4("uViewProj", viewProj);
-	vertexArray->setActive();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void RendererOGL::draw()
 {
-	drawSprites();
+	drawMeshes();
+	//drawSprites();
 }
 
 void RendererOGL::endDraw()
@@ -91,7 +86,7 @@ void RendererOGL::endDraw()
 void RendererOGL::close()
 {
 	SDL_GL_DeleteContext(context);
-	delete vertexArray;
+	delete spriteVertexArray;
 }
 
 void RendererOGL::addSprite(SpriteComponent* sprite)
@@ -114,6 +109,17 @@ void RendererOGL::removeSprite(SpriteComponent* sprite)
 
 void RendererOGL::drawSprites()
 {
+	glDisable(GL_DEPTH_TEST);
+	// Enable alpha blending on the clor buffer
+	glEnable(GL_BLEND);
+	glBlendEquationSeparate(GL_FUNC_ADD, GL_FUNC_ADD);
+	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+
+	// Active shhader and vertex array
+	Shader& spriteShader = Assets::getShader("Sprite");
+	spriteShader.use();
+	spriteShader.setMatrix4("uViewProj", spriteViewProj);
+	spriteVertexArray->setActive();
 	for (auto sprite : sprites)
 	{
 		sprite->draw(*this);
@@ -124,12 +130,40 @@ void RendererOGL::drawSprite(const Actor& actor, const Texture& tex, Rectangle s
 {
 	Matrix4 scaleMat = Matrix4::createScale((float)tex.getWidth(), (float)tex.getHeight(), 1.0f);
 	Matrix4 world = scaleMat * actor.getWorlTransform();
-	Matrix4 pixelTranslation = Matrix4::createTranslation(Vector3(-WINDOW_WIDTH / 2 - origin.x, -WINDOW_HEIGHT / 2 - origin.y, 0.0f)); // Screen pixel coordinates
-	shader->setMatrix4("uWorldTransform", world * pixelTranslation);
+	Assets::getShader("Sprite").setMatrix4("uWorldTransform", world);
 	tex.setActive();
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
+void RendererOGL::drawMeshes()
+{
+	// ENable depth buffering/disable alpha blend
+	glEnable(GL_DEPTH_TEST);
+	glDisable(GL_BLEND);
+	Assets::getShader("BasicMesh").use();
+	// Update view-projection matrix
+	Assets::getShader("BasicMesh").setMatrix4("uViewProj", view * projection);
+	for (auto mc:meshes)
+	{
+		mc->draw(Assets::getShader("BasicMesh"));
+	}
+}
+
+void RendererOGL::addMesh(MeshComponent* mesh) 
+{
+	meshes.emplace_back(mesh);
+}
+
+void RendererOGL::removeMesh(MeshComponent* mesh)
+{
+	auto iter = std::find(begin(meshes), end(meshes), mesh);
+	meshes.erase(iter);
+}
+
+void RendererOGL::setViewMatrix(const Matrix4& viewP)
+{
+	view = viewP;
+}
 
 
 
