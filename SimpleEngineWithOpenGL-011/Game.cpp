@@ -5,8 +5,7 @@
 #include "Timer.h"
 #include "Assets.h"
 #include "BackgroundSpriteComponent.h"
-#include "Astroid.h"
-#include "Ship.h"
+#include "MeshComponent.h"
 
 bool Game::initialize()
 {

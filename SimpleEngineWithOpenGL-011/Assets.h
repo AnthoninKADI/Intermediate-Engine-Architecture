@@ -4,6 +4,7 @@
 #include "Texture.h"
 #include "IRenderer.h"
 #include "Shader.h"
+#include "Mesh.h"
 
 using std::map;
 using std::string;
@@ -17,6 +18,7 @@ class Assets
 public:
     static std::map<std::string, Texture> textures;
     static std::map<std::string, Shader> shaders;
+    static std::map<std::string, Mesh> meshes;
 
     // Loads a texture from file
     static Texture loadTexture(IRenderer& renderer, const string& filename, const string& name);
@@ -27,6 +29,12 @@ public:
     static Shader loadShader(const std::string& vShaderFile, const std::string& fShaderFile,
         const std::string& tcShaderFile, const std::string& teShaderFile,
         const std::string& gShaderFile, const std::string& name);
+
+    // Loads a mesh from file
+    static Mesh loadMesh(const string& filename, const string& name);
+
+    // Retrieves a stored mesh
+    static Mesh& getMesh(const std::string& name);
 
     // Retrieves a stored shader
     static Shader& getShader(const std::string& name);
@@ -47,5 +55,7 @@ private:
     static Shader loadShaderFromFile(const std::string& vShaderFile, const std::string& fShaderFile,
         const std::string& tcShaderFile = "", const std::string& teShaderFile = "",
         const std::string& gShaderFile = "");
+
+    static Mesh loadMeshFromFile(const string& filename);
 };
 

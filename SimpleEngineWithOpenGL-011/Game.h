@@ -6,7 +6,8 @@
 #include "RendererSDL.h"
 #include "Vector2.h"
 #include "RendererOGL.h"
-#include "Astroid.h"
+#include "Camera.h"
+
 using std::vector;
 
 class Game
@@ -24,7 +25,7 @@ public:
 	Game& operator=(Game&&) = delete;
 
 private:
-	Game() : isRunning(true), isUpdatingActors(false) {}
+	Game() : isRunning(true), isUpdatingActors(false), camera(nullptr) {}
 
 public:
 	bool initialize();
@@ -38,10 +39,6 @@ public:
 
 	RendererOGL& getRenderer() { return renderer; }
 	IRenderer::Type type() { return IRenderer::Type::SDL; }
-	// Game specific
-	vector<Astroid*>& getAstroids();
-	void addAstroid(Astroid* astroid);
-	void removeAstroid(Astroid* astroid);
 
 private:
 	void processInput();
@@ -51,12 +48,11 @@ private:
 	bool isRunning;
 	Window window;
 	RendererOGL renderer;
+	Camera* camera;
 
 	bool isUpdatingActors;
 	vector<Actor*> actors;
 	vector<Actor*> pendingActors;
 
-	// Game specific
-	vector<Astroid*> astroids;
 };
 
