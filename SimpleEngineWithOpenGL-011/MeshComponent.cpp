@@ -20,6 +20,7 @@ void MeshComponent::draw(Shader& shader)
 	{
 		Matrix4 wt = owner.getWorlTransform();
 		shader.setMatrix4("uWorldTransform", wt);
+		shader.setFloat("uSpecPower", mesh->getSpecularPower());
 		Texture* t = mesh->getTexture(textureIndex);
 		if (t)
 		{
