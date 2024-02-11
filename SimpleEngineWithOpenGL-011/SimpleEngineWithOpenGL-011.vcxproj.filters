@@ -63,7 +63,6 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Plane.cpp" />
-    <ClCompile Include="DirectionalLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />

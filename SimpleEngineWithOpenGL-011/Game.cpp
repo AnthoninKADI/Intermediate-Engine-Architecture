@@ -207,7 +207,7 @@ void Game::close()
 	window.close();
 	SDL_Quit();
 }
-
+/*
 void Game::addActor(Actor* actor)
 {
 	if (isUpdatingActors)
@@ -236,5 +236,7 @@ void Game::removeActor(Actor* actor)
 		std::iter_swap(iter, end(actors) - 1);
 		actors.pop_back();
 	}
+	
 }
+*/
 
