@@ -15,4 +15,3 @@ protected:
 	Mesh* mesh;
 	size_t textureIndex;
 };
-

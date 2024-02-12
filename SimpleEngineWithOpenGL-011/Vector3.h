@@ -8,7 +8,7 @@ public:
 	float y;
 	float z;
 
-	Vector3(): x(0.0f), y(0.0f), z(0.0f) {}
+	Vector3() : x(0.0f), y(0.0f), z(0.0f) {}
 
 	explicit Vector3(float xP, float yP, float zP)
 		:x(xP), y(yP), z(zP) {}
@@ -29,7 +29,7 @@ public:
 		return Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
 	}
 
-	// Vector substraction (a - b)
+	// Vector subtraction (a - b)
 	friend Vector3 operator-(const Vector3& a, const Vector3& b)
 	{
 		return Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
@@ -88,7 +88,7 @@ public:
 		return temp;
 	}
 
-	//Dot product between two vectors (a dot b)
+	// Dot product between two vectors (a dot b)
 	static float dot(const Vector3& a, const Vector3& b)
 	{
 		return (a.x * b.x + a.y * b.y + a.z * b.z);
@@ -134,4 +134,3 @@ public:
 	static const Vector3 infinity;
 	static const Vector3 negInfinity;
 };
-

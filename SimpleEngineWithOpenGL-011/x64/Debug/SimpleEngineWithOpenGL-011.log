@@ -1,52 +1,47 @@
 ﻿  Actor.cpp
-  AnimSpriteComponent.cpp
-  BackgroundSpriteComponent.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\BackgroundSpriteComponent.cpp(37,8): error C2664: 'void Actor::setPosition(Vector3)': cannot convert argument 1 from 'Vector2' to 'Vector3'
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\BackgroundSpriteComponent.cpp(37,28): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(33,7): message : see declaration of 'Actor::setPosition'
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\BackgroundSpriteComponent.cpp(37,8): message : while trying to match the argument list '(Vector2)'
-  Camera.cpp
-  CircleCollisionComponent.cpp
-  Component.cpp
-  Cube.cpp
-  Game.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Game.cpp(24,49): warning C4129: 'P': unrecognized character escape sequence
-  InputComponent.cpp
-  IRenderer.cpp
-  Log.cpp
-  Main.cpp
-  Matrix4.cpp
-  Mesh.cpp
-  MeshComponent.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\MeshComponent.cpp(24,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  MoveComponent.cpp
-  Plane.cpp
-  Quaternion.cpp
-  Random.cpp
-  Rectangle.cpp
-  Generating Code...
-  Compiling...
   RendererOGL.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\RendererOGL.cpp(66,38): error C2065: 'spriteVertices': undeclared identifier
-  RendererSDL.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\RendererSDL.cpp(67,19): error C2440: 'initializing': cannot convert from 'const Vector3' to 'Vector2'
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\RendererSDL.cpp(67,19): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\RendererSDL.cpp(68,17): error C2440: 'initializing': cannot convert from 'const Quaternion' to 'float'
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\RendererSDL.cpp(68,17): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-  Assets.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(242,36): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(254,105): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(150,1): fatal  error C1075: '{': no matching token found
-  Shader.cpp
-  Sphere.cpp
-  SpriteComponent.cpp
-  Texture.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Texture.cpp(40,53): error C2039: 'toSDLRenderer': is not a member of 'IRenderer'
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\IRenderer.h(5,7): message : see declaration of 'IRenderer'
-  Timer.cpp
-  Vector2.cpp
-  Vector3.cpp
-  VertexArray.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\VertexArray.cpp(14,49): warning C4244: 'argument': conversion from 'double' to 'GLsizeiptr', possible loss of data
   Window.cpp
   Generating Code...
+  SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Astroid.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character.txt
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character01.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character02.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character03.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character04.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character05.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character06.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character07.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character08.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character09.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character10.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character11.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character12.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character13.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character14.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character15.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character16.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character17.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character18.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy01.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy02.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy03.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy04.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy05.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy06.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Farback01.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Farback02.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Laser.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\LICENSE.txt
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\MapLayer1.csv
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\MapLayer2.csv
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\MapLayer3.csv
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship01.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship02.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship03.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship04.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\ShipWithThrust.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Stars.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Tiles.png
+  41 File(s) copied

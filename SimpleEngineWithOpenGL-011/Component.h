@@ -16,10 +16,9 @@ public:
 
 	virtual void processInput(const Uint8* keyState);
 	virtual void update(float dt);
-	virtual void onUpdateWorldTransform(){}
+	virtual void onUpdateWorldTransform() {}
 
 protected:
 	Actor& owner;
 	int updateOrder;		// Order of the component in the actor's updateComponent method
 };
-
