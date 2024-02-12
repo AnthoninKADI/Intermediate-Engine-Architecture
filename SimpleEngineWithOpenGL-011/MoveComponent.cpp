@@ -4,7 +4,8 @@
 #include "Window.h"
 
 MoveComponent::MoveComponent(Actor* ownerP, int updateOrderP)
-	: Component(ownerP, updateOrderP), forwardSpeed(0.0f), angularSpeed(0.0f)
+	: Component(ownerP, updateOrderP), forwardSpeed(0.0f), angularSpeed(0.0f),
+strafeSpeed(0.0)
 {
 
 }
@@ -19,6 +20,11 @@ void MoveComponent::setAngularSpeed(float angularSpeedP)
 	angularSpeed = angularSpeedP;
 }
 
+void MoveComponent::setStrafeSpeed(float strafeSpeedP)
+{
+	strafeSpeed = strafeSpeedP;
+}
+
 void MoveComponent::update(float dt)
 {
 	if (!Maths::nearZero(angularSpeed))
@@ -31,7 +37,9 @@ void MoveComponent::update(float dt)
 	}
 	if (!Maths::nearZero(forwardSpeed))
 	{
-		Vector3 newPosition = owner.getPosition() + owner.getForward() * forwardSpeed * dt;
+		Vector3 newPosition = owner.getPosition();
+		newPosition += owner.getForward() * forwardSpeed * dt;
+		newPosition += owner.getRight() * strafeSpeed * dt;
 		owner.setPosition(newPosition);
 	}
 }

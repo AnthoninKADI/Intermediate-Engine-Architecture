@@ -6,20 +6,27 @@
 #include "Cube.h"
 #include "Sphere.h"
 #include "Plane.h"
+#include "FPSActor.h"
+#include "FollowActor.h"
+#include "OrbitActor.h"
+#include "SplineActor.h"
 
 bool Game::initialize()
 {
 	bool isWindowInit = window.initialize();
 	bool isRendererInit = renderer.initialize(window);
-	bool isInputinit = inputSystem.initialize();
-	return isWindowInit && isRendererInit && isInputinit; // Return bool && bool && bool ...to detect error
+	bool isInputInit = inputSystem.initialize();
+
+	return isWindowInit && isRendererInit && isInputInit; // Return bool && bool && bool ...to detect error
 }
 
 void Game::load()
 {
+	inputSystem.setMouseRelativeMode(true);
+
 	Assets::loadShader("Res\\Shaders\\Sprite.vert", "Res\\Shaders\\Sprite.frag", "", "", "", "Sprite");
-	Assets::loadShader("Res\\Shaders\\BasicMesh.vert", "Res\\Shaders\\BasicMesh.frag", "", "", "", "BasicMesh");
 	Assets::loadShader("Res\\Shaders\\Phong.vert", "Res\\Shaders\\Phong.frag", "", "", "", "Phong");
+	Assets::loadShader("Res\\Shaders\\BasicMesh.vert", "Res\\Shaders\\BasicMesh.frag", "", "", "", "BasicMesh");
 
 	Assets::loadTexture(renderer, "Res\\Textures\\Default.png", "Default");
 	Assets::loadTexture(renderer, "Res\\Textures\\Cube.png", "Cube");
@@ -27,12 +34,20 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Plane.png", "Plane");
 	Assets::loadTexture(renderer, "Res\\Textures\\Radar.png", "Radar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Sphere.png", "Sphere");
+	Assets::loadTexture(renderer, "Res\\Textures\\Crosshair.png", "Crosshair");
+	Assets::loadTexture(renderer, "Res\\Textures\\RacingCar.png", "RacingCar");
+	Assets::loadTexture(renderer, "Res\\Textures\\Rifle.png", "Rifle");
 
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
 	Assets::loadMesh("Res\\Meshes\\Sphere.gpmesh", "Mesh_Sphere");
+	Assets::loadMesh("Res\\Meshes\\Rifle.gpmesh", "Mesh_Rifle");
+	Assets::loadMesh("Res\\Meshes\\RacingCar.gpmesh", "Mesh_RacingCar");
 
-	camera = new Camera();
+	fps = new FPSActor();
+	follow = new FollowActor();
+	orbit = new OrbitActor();
+	path = new SplineActor();
 
 	Cube* a = new Cube();
 	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
@@ -92,15 +107,13 @@ void Game::load()
 	dir.diffuseColor = Vector3(0.78f, 0.88f, 1.0f);
 	dir.specColor = Vector3(0.8f, 0.8f, 0.8f);
 
-	// UI elements
-	Actor* ui = new Actor();
-	ui->setPosition(Vector3(-350.0f, -350.0f, 0.0f));
-	SpriteComponent* sc = new SpriteComponent(ui, Assets::getTexture("HealthBar"));
+	// Corsshair
+	Actor* crosshairActor = new Actor();
+	crosshairActor->setScale(2.0f);
+	crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));
 
-	ui = new Actor();
-	ui->setPosition(Vector3(375.0f, -275.0f, 0.0f));
-	ui->setScale(0.75f);
-	sc = new SpriteComponent(ui, Assets::getTexture("Radar"));
+
+	changeCamera(1);
 }
 
 void Game::processInput()
@@ -111,13 +124,9 @@ void Game::processInput()
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			isRunning = false;
-			break;
-		}
+		isRunning = inputSystem.processEvent(event);
 	}
+
 	inputSystem.update();
 	const InputState& input = inputSystem.getInputState();
 
@@ -125,6 +134,23 @@ void Game::processInput()
 	if (input.keyboard.getKeyState(SDL_SCANCODE_ESCAPE) == ButtonState::Released)
 	{
 		isRunning = false;
+	}
+
+	if (input.keyboard.getKeyState(SDL_SCANCODE_1) == ButtonState::Pressed)
+	{
+		changeCamera(1);
+	}
+	else if (input.keyboard.getKeyState(SDL_SCANCODE_2) == ButtonState::Pressed)
+	{
+		changeCamera(2);
+	}
+	else if (input.keyboard.getKeyState(SDL_SCANCODE_3) == ButtonState::Pressed)
+	{
+		changeCamera(3);
+	}
+	else if (input.keyboard.getKeyState(SDL_SCANCODE_4) == ButtonState::Pressed)
+	{
+		changeCamera(4);
 	}
 
 	// Actor input
@@ -174,6 +200,42 @@ void Game::render()
 	renderer.beginDraw();
 	renderer.draw();
 	renderer.endDraw();
+}
+
+void Game::changeCamera(int mode)
+{
+	// Disable everything
+	fps->setState(Actor::ActorState::Paused);
+	fps->setVisible(false);
+	crosshair->setVisible(false);
+	follow->setState(Actor::ActorState::Paused);
+	follow->setVisible(false);
+	orbit->setState(Actor::ActorState::Paused);
+	orbit->setVisible(false);
+	path->setState(Actor::ActorState::Paused);
+
+	// Enable the camera specified by the mode
+	switch (mode)
+	{
+	case 1:
+	default:
+		fps->setState(Actor::ActorState::Active);
+		fps->setVisible(true);
+		crosshair->setVisible(true);
+		break;
+	case 2:
+		follow->setState(Actor::ActorState::Active);
+		follow->setVisible(true);
+		break;
+	case 3:
+		orbit->setState(Actor::ActorState::Active);
+		orbit->setVisible(true);
+		break;
+	case 4:
+		path->setState(Actor::ActorState::Active);
+		path->restartSpline();
+		break;
+	}
 }
 
 void Game::loop()
