@@ -27,7 +27,7 @@ ButtonState KeyboardState::getKeyState(SDL_Scancode key) const
 		}
 		else
 		{
-			return ButtonState::held;
+			return ButtonState::Held;
 		}
 	}
 }

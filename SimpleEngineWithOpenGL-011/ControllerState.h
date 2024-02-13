@@ -7,6 +7,8 @@ class ControllerState
 public:
 	friend class InputSystem;
 
+	ControllerState();
+
 	bool getButtonValue(SDL_GameControllerButton button) const;
 	enum class ButtonState getButtonState(SDL_GameControllerButton button) const;
 
@@ -15,6 +17,7 @@ public:
 	float getLeftTrigger() const { return leftTrigger; }
 	float getRightTrigger() const { return rightTrigger; }
 	bool getIsConnected() const { return isConnected; }
+
 
 private:
 	Uint8 currentButtons[SDL_CONTROLLER_BUTTON_MAX];
@@ -25,4 +28,3 @@ private:
 	float rightTrigger;
 	bool isConnected;
 };
-

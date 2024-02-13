@@ -15,10 +15,6 @@ public:
 
 	void setMaxForwardSpeed(float maxForwardSpeedP);
 	void setMaxAngularSpeed(float maxAngularSpeedP);
-	void setForwardKey(int key);
-	void setBackKey(int key);
-	void setClockwiseKey(int key);
-	void setCounterClockwiseKey(int key);
 	void setForwardKey(SDL_Scancode key);
 	void setBackKey(SDL_Scancode key);
 	void setClockwiseKey(SDL_Scancode key);
@@ -28,11 +24,6 @@ public:
 private:
 	float maxForwardSpeed;
 	float maxAngularSpeed;
-
-	int forwardKey;
-	int backKey;
-	int clockwiseKey;
-	int counterClockwiseKey;
 
 	SDL_Scancode forwardKey;
 	SDL_Scancode backKey;

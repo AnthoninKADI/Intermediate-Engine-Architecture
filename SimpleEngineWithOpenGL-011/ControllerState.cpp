@@ -12,6 +12,7 @@ ControllerState::ControllerState() :
 
 }
 
+
 bool ControllerState::getButtonValue(SDL_GameControllerButton button) const
 {
 	return currentButtons[button] == 1;

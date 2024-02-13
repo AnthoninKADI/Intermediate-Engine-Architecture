@@ -1,47 +1,35 @@
-﻿  Actor.cpp
+﻿  Cube.cpp
+  FPSActor.cpp
+  FollowActor.cpp
+  Game.cpp
+  MeshComponent.cpp
+C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\MeshComponent.cpp(23,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  OrbitActor.cpp
+  Plane.cpp
   RendererOGL.cpp
-  Window.cpp
+  Sphere.cpp
   Generating Code...
   SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Astroid.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character.txt
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character01.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character02.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character03.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character04.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character05.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character06.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character07.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character08.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character09.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character10.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character11.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character12.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character13.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character14.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character15.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character16.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character17.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Character18.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy01.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy02.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy03.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy04.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy05.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Enemy06.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Farback01.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Farback02.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Laser.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\LICENSE.txt
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\MapLayer1.csv
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\MapLayer2.csv
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\MapLayer3.csv
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship01.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship02.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship03.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Ship04.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\ShipWithThrust.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Stars.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Tiles.png
-  41 File(s) copied
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Cube.gpmesh
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Plane.gpmesh
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\RacingCar.gpmesh
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Rifle.gpmesh
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Sphere.gpmesh
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.frag
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.vert
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.frag
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.vert
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.frag
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.vert
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Crosshair.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Default.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\HealthBar.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Plane.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\RacingCar.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Radar.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Rifle.png
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Sphere.png
+  22 File(s) copied

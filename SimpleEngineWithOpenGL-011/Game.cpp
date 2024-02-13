@@ -61,7 +61,6 @@ void Game::load()
 	b->setScale(3.0f);
 
 	// Floor and walls
-
 	// Setup floor
 	const float start = -1250.0f;
 	const float size = 250.0f;

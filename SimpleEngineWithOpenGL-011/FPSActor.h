@@ -10,16 +10,16 @@ public:
 	void updateActor(float dt) override;
 	void actorInput(const struct InputState& inputState) override;
 
-	void setFootstepSurface(float value);
+	//void setFootstepSurface(float value);
 	void setVisible(bool isVisible);
 
 private:
 	class MoveComponent* moveComponent;
-	class AudioComponent* audioComponent;
+	//class AudioComponent* audioComponent;
 	class MeshComponent* meshComponent;
 	class FPSCameraComponent* cameraComponent;
 	class Actor* FPSModel;
-	float lastFootstep;
+	//float lastFootstep;
 };
 
 const Vector3 MODEL_OFFSET = Vector3(10.0f, 10.0f, -10.0f);
