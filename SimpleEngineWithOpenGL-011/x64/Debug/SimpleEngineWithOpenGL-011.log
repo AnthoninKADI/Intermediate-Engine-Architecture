@@ -1,13 +1,32 @@
-﻿  Cube.cpp
+﻿  Actor.cpp
+  AnimSpriteComponent.cpp
+  Assets.cpp
+C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(262,36): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(279,101): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  BackgroundSpriteComponent.cpp
+  BallActor.cpp
+  BallMoveComponent.cpp
+  BoxComponent.cpp
+  Camera.cpp
+  CameraComponent.cpp
+  Cube.cpp
+  CubeActor.cpp
   FPSActor.cpp
   FollowActor.cpp
   Game.cpp
+  Main.cpp
+  Mesh.cpp
   MeshComponent.cpp
 C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\MeshComponent.cpp(23,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   OrbitActor.cpp
-  Plane.cpp
+  PlaneActor.cpp
   RendererOGL.cpp
-  Sphere.cpp
+  Generating Code...
+  Compiling...
+  SphereActor.cpp
+  SpriteComponent.cpp
+  TargetActor.cpp
+  Texture.cpp
   Generating Code...
   SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
@@ -17,6 +36,7 @@ C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Eng
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\RacingCar.gpmesh
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Rifle.gpmesh
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Sphere.gpmesh
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Target.gpmesh
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.frag
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.vert
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.frag
@@ -32,4 +52,5 @@ C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Eng
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Radar.png
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Rifle.png
   C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Sphere.png
-  22 File(s) copied
+  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Target.png
+  24 File(s) copied

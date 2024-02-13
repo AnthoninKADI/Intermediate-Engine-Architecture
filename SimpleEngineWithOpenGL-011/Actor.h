@@ -1,8 +1,10 @@
 #pragma once
+
 #include <vector>
 #include "Vector2.h"
 #include <SDL_stdinc.h>
 #include "Matrix4.h"
+
 using std::vector;
 
 class Game;
@@ -34,9 +36,12 @@ public:
 	void setRotation(Quaternion rotationP);
 	void setState(ActorState stateP);
 
+	void setAngle(const Vector3& axis, float angle);
+	void rotate(const Vector3& axis, float angle);
 	Vector3 getForward() const;
 	Vector3 getRight() const;
 	void computeWorldTransform();
+	void rotateToNewForward(const Vector3& newForward);
 
 	void processInput(const struct InputState& inputState);
 	virtual void actorInput(const struct InputState& inputState);

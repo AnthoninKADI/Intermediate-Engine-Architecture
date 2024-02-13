@@ -45,14 +45,10 @@
     <ClCompile Include="Assets.cpp" />
     <ClCompile Include="VertexArray.cpp" />
     <ClCompile Include="RendererOGL.cpp" />
-    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Vector3.cpp">
       <Filter>Maths</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix4.cpp" />
-    <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Sphere.cpp" />
@@ -61,16 +57,55 @@
     <ClCompile Include="KeyboardState.cpp" />
     <ClCompile Include="MouseState.cpp" />
     <ClCompile Include="ControllerState.cpp" />
-    <ClCompile Include="CameraComponent.cpp" />
-    <ClCompile Include="FPSCameraComponent.cpp" />
     <ClCompile Include="FPSActor.cpp" />
-    <ClCompile Include="FollowCameraComponent.cpp" />
     <ClCompile Include="FollowActor.cpp" />
-    <ClCompile Include="OrbitCameraComponent.cpp" />
     <ClCompile Include="OrbitActor.cpp" />
     <ClCompile Include="Spline.cpp" />
-    <ClCompile Include="SplineCameraComponent.cpp" />
     <ClCompile Include="SplineActor.cpp" />
+    <ClCompile Include="SphereActor.cpp" />
+    <ClCompile Include="CubeActor.cpp" />
+    <ClCompile Include="PlaneActor.cpp" />
+    <ClCompile Include="LineSegment.cpp" />
+    <ClCompile Include="Collisions.cpp" />
+    <ClCompile Include="PhysicsSystem.cpp" />
+    <ClCompile Include="BallActor.cpp" />
+    <ClCompile Include="TargetActor.cpp" />
+    <ClCompile Include="BallMoveComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowCameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSCameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitCameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SplineCameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="AABB.cpp">
+      <Filter>Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -122,33 +157,70 @@
     </ClInclude>
     <ClInclude Include="VertexArray.h" />
     <ClInclude Include="RendererOGL.h" />
-    <ClInclude Include="Shader.h" />
     <ClInclude Include="Vector3.h">
       <Filter>Maths</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix4.h" />
-    <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Mesh.h" />
-    <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Plane.h" />
-    <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="KeyboardState.h" />
     <ClInclude Include="MouseState.h" />
     <ClInclude Include="ControllerState.h" />
-    <ClInclude Include="CameraComponent.h" />
-    <ClInclude Include="FPSCameraComponent.h" />
     <ClInclude Include="FPSActor.h" />
-    <ClInclude Include="FollowCameraComponent.h" />
     <ClInclude Include="FollowActor.h" />
-    <ClInclude Include="OrbitCameraComponent.h" />
     <ClInclude Include="OrbitActor.h" />
     <ClInclude Include="Spline.h" />
-    <ClInclude Include="SplineCameraComponent.h" />
     <ClInclude Include="SplineActor.h" />
+    <ClInclude Include="SphereActor.h" />
+    <ClInclude Include="CubeActor.h" />
+    <ClInclude Include="PlaneActor.h" />
+    <ClInclude Include="LineSegment.h" />
+    <ClInclude Include="Collisions.h" />
+    <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="BallActor.h" />
+    <ClInclude Include="TargetActor.h" />
+    <ClInclude Include="BallMoveComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowCameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSCameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="OrbitCameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SplineCameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">
@@ -165,14 +237,32 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basic.vert" />
-    <None Include="Basic.frag" />
-    <None Include="Transform.vert" />
-    <None Include="Sprite.vert" />
-    <None Include="Sprite.frag" />
-    <None Include="BasicMesh.vert" />
-    <None Include="BasicMesh.frag" />
-    <None Include="Phong.vert" />
-    <None Include="Phong.frag" />
+    <None Include="Basic.frag">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="Basic.vert">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="BasicMesh.frag">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="BasicMesh.vert">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="Phong.frag">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="Phong.vert">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="Transform.vert">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="Sprite.vert">
+      <Filter>Graphics</Filter>
+    </None>
+    <None Include="Sprite.frag">
+      <Filter>Graphics</Filter>
+    </None>
   </ItemGroup>
 </Project>
