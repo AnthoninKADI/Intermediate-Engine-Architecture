@@ -45,6 +45,7 @@ void FollowActor::actorInput(const InputState& inputState)
 	moveComponent->setForwardSpeed(forwardSpeed);
 	moveComponent->setAngularSpeed(angularSpeed);
 
+	/*
 	// Adjust horizontal distance of camera based on speed
 	if (!Maths::nearZero(forwardSpeed))
 	{
@@ -54,6 +55,7 @@ void FollowActor::actorInput(const InputState& inputState)
 	{
 		cameraComponent->setHorizontalDistance(350.0f);
 	}
+	*/
 }
 
 void FollowActor::setVisible(bool isVisibleP)

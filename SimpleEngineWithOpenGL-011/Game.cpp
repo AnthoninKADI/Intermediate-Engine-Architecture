@@ -49,8 +49,13 @@ void Game::load()
 	Assets::loadMesh("Res\\Meshes\\RacingCar.gpmesh", "Mesh_RacingCar");
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
 
+	/*
 	fps = new FPSActor();
-	//follow = new FollowActor();
+	orbit = new OrbitActor();
+	path = new SplineActor();
+	*/
+	follow = new FollowActor();
+
 
 	CubeActor* a = new CubeActor();
 	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
@@ -66,20 +71,20 @@ void Game::load()
 	// Floor and walls
 
 	// Setup floor
-	const float start = -1250.0f;
-	const float size = 250.0f;
-	for (int i = 0; i < 10; i++)
+	const float start = -4000.0f;
+	const float size = 1000.0f;
+	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < 20; j++)
 		{
 			PlaneActor* p = new PlaneActor();
-			p->setPosition(Vector3(start + i * size, start + j * size, -100.0f));
+			p->setPosition(Vector3(start + i * size, start + j * size, -size/2));
 		}
 	}
-
+	/*
 	// Left/right walls
 	q = Quaternion(Vector3::unitX, Maths::piOver2);
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 20; i++)
 	{
 		PlaneActor* p = new PlaneActor();
 		p->setPosition(Vector3(start + i * size, start - size, 0.0f));
@@ -92,7 +97,7 @@ void Game::load()
 
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::piOver2));
 	// Forward/back walls
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 20; i++)
 	{
 		PlaneActor* p = new PlaneActor();
 		p->setPosition(Vector3(start - size, start + i * size, 0.0f));
@@ -102,6 +107,7 @@ void Game::load()
 		p->setPosition(Vector3(-start + size, start + i * size, 0.0f));
 		p->setRotation(q);
 	}
+	*/
 
 	// Setup lights
 	renderer.setAmbientLight(Vector3(0.2f, 0.2f, 0.2f));
@@ -110,10 +116,12 @@ void Game::load()
 	dir.diffuseColor = Vector3(0.78f, 0.88f, 1.0f);
 	dir.specColor = Vector3(0.8f, 0.8f, 0.8f);
 
+	/*
 	// Corsshair
 	Actor* crosshairActor = new Actor();
 	crosshairActor->setScale(2.0f);
 	crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));
+	
 
 	TargetActor* t = new TargetActor();
 	t->setPosition(Vector3(1450.0f, 0.0f, 100.0f));
@@ -123,6 +131,7 @@ void Game::load()
 	t->setPosition(Vector3(1450.0f, -500.0f, 200.0f));
 	t = new TargetActor();
 	t->setPosition(Vector3(1450.0f, 500.0f, 200.0f));
+	*/
 }
 
 void Game::processInput()

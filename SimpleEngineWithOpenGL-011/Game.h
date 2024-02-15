@@ -64,6 +64,8 @@ private:
 	// Game specific
 	class FPSActor* fps;
 	class FollowActor* follow;
+	class OrbitActor* orbit;
+	class SplineActor* path;
 	class SpriteComponent* crosshair;
 	vector<PlaneActor*> planes;
 };
