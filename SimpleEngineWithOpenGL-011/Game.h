@@ -5,7 +5,6 @@
 #include "Window.h"
 #include "Vector2.h"
 #include "RendererOGL.h"
-#include "Camera.h"
 #include "InputSystem.h"
 #include "PhysicsSystem.h"
 #include "PlaneActor.h"
@@ -27,7 +26,7 @@ public:
 	Game& operator=(Game&&) = delete;
 
 private:
-	Game() : isRunning(true), isUpdatingActors(false), fps(nullptr), crosshair(nullptr), follow(nullptr), orbit(nullptr), path(nullptr) {}
+	Game() : isRunning(true), isUpdatingActors(false), fps(nullptr), crosshair(nullptr) {}
 
 public:
 	bool initialize();
@@ -46,6 +45,7 @@ public:
 	void removePlane(class PlaneActor* plane);
 	vector<PlaneActor*>& getPlanes() { return planes; }
 
+
 private:
 	void processInput();
 	void update(float dt);
@@ -60,15 +60,10 @@ private:
 	bool isUpdatingActors;
 	vector<Actor*> actors;
 	vector<Actor*> pendingActors;
-	Camera* camera;
 
 	// Game specific
-	void changeCamera(int mode);
-
 	class FPSActor* fps;
-	class SpriteComponent* crosshair;
 	class FollowActor* follow;
-	class OrbitActor* orbit;
-	class SplineActor* path;
+	class SpriteComponent* crosshair;
 	vector<PlaneActor*> planes;
 };

@@ -23,5 +23,4 @@ private:
 	float forwardSpeed;
 	float angularSpeed;
 	float strafeSpeed;
-
 };

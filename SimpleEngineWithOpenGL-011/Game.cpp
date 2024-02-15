@@ -12,6 +12,7 @@
 #include "SplineActor.h"
 #include "TargetActor.h"
 #include <algorithm>
+#include <algorithm>
 
 bool Game::initialize()
 {
@@ -49,9 +50,7 @@ void Game::load()
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
 
 	fps = new FPSActor();
-	follow = new FollowActor();
-	orbit = new OrbitActor();
-	path = new SplineActor();
+	//follow = new FollowActor();
 
 	CubeActor* a = new CubeActor();
 	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
@@ -65,6 +64,7 @@ void Game::load()
 	b->setScale(3.0f);
 
 	// Floor and walls
+
 	// Setup floor
 	const float start = -1250.0f;
 	const float size = 250.0f;
@@ -115,8 +115,6 @@ void Game::load()
 	crosshairActor->setScale(2.0f);
 	crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));
 
-	changeCamera(1);
-	// Target
 	TargetActor* t = new TargetActor();
 	t->setPosition(Vector3(1450.0f, 0.0f, 100.0f));
 	t = new TargetActor();
@@ -145,23 +143,6 @@ void Game::processInput()
 	if (input.keyboard.getKeyState(SDL_SCANCODE_ESCAPE) == ButtonState::Released)
 	{
 		isRunning = false;
-	}
-
-	if (input.keyboard.getKeyState(SDL_SCANCODE_1) == ButtonState::Pressed)
-	{
-		changeCamera(1);
-	}
-	else if (input.keyboard.getKeyState(SDL_SCANCODE_2) == ButtonState::Pressed)
-	{
-		changeCamera(2);
-	}
-	else if (input.keyboard.getKeyState(SDL_SCANCODE_3) == ButtonState::Pressed)
-	{
-		changeCamera(3);
-	}
-	else if (input.keyboard.getKeyState(SDL_SCANCODE_4) == ButtonState::Pressed)
-	{
-		changeCamera(4);
 	}
 
 	// Actor input
@@ -205,47 +186,12 @@ void Game::update(float dt)
 		delete deadActor;
 	}
 }
+
 void Game::render()
 {
 	renderer.beginDraw();
 	renderer.draw();
 	renderer.endDraw();
-}
-
-void Game::changeCamera(int mode)
-{
-	// Disable everything
-	fps->setState(Actor::ActorState::Paused);
-	fps->setVisible(false);
-	crosshair->setVisible(false);
-	follow->setState(Actor::ActorState::Paused);
-	follow->setVisible(false);
-	orbit->setState(Actor::ActorState::Paused);
-	orbit->setVisible(false);
-	path->setState(Actor::ActorState::Paused);
-
-	// Enable the camera specified by the mode
-	switch (mode)
-	{
-	case 1:
-	default:
-		fps->setState(Actor::ActorState::Active);
-		fps->setVisible(true);
-		crosshair->setVisible(true);
-		break;
-	case 2:
-		follow->setState(Actor::ActorState::Active);
-		follow->setVisible(true);
-		break;
-	case 3:
-		orbit->setState(Actor::ActorState::Active);
-		orbit->setVisible(true);
-		break;
-	case 4:
-		path->setState(Actor::ActorState::Active);
-		path->restartSpline();
-		break;
-	}
 }
 
 void Game::loop()

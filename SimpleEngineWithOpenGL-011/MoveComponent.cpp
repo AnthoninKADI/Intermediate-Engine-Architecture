@@ -4,8 +4,7 @@
 #include "Window.h"
 
 MoveComponent::MoveComponent(Actor* ownerP, int updateOrderP)
-	: Component(ownerP, updateOrderP), forwardSpeed(0.0f), angularSpeed(0.0f),
-strafeSpeed(0.0)
+	: Component(ownerP, updateOrderP), forwardSpeed(0.0f), angularSpeed(0.0f), strafeSpeed(0.0f)
 {
 
 }
@@ -35,7 +34,7 @@ void MoveComponent::update(float dt)
 		newRotation = Quaternion::concatenate(newRotation, increment);
 		owner.setRotation(newRotation);
 	}
-	if (!Maths::nearZero(forwardSpeed))
+	if (!Maths::nearZero(forwardSpeed) || !Maths::nearZero(strafeSpeed))
 	{
 		Vector3 newPosition = owner.getPosition();
 		newPosition += owner.getForward() * forwardSpeed * dt;

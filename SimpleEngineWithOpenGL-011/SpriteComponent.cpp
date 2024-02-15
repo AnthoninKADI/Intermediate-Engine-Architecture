@@ -8,7 +8,8 @@ SpriteComponent::SpriteComponent(Actor* ownerP, Texture& textureP, int drawOrder
 	texture(textureP),
 	drawOrder(drawOrderP),
 	texWidth(textureP.getWidth()),
-	texHeight(textureP.getHeight())
+	texHeight(textureP.getHeight()),
+	isVisible(true)
 {
 	owner.getGame().getRenderer().addSprite(this);
 }

@@ -4,7 +4,6 @@
 class MouseState
 {
 	friend class InputSystem;
-	
 public:
 	const Vector2& getPosition() const { return position; }
 	bool getButtonValue(int button) const;
@@ -19,4 +18,3 @@ private:
 	Vector2 scrollWheel;
 	bool isRelativeMode;
 };
-

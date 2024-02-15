@@ -1,10 +1,13 @@
 #include "InputSystem.h"
-#include "Maths.h"
 #include <SDL_keyboard.h>
 #include <cstring>
 #include <SDL_mouse.h>
+#include "Maths.h"
 
-InputSystem::InputSystem() : inputState()
+InputSystem::InputSystem() :
+	inputState(),
+	isCursorDisplayed(false),
+	controller(nullptr)
 {
 }
 
@@ -15,7 +18,6 @@ bool InputSystem::initialize()
 	inputState.keyboard.currentState = SDL_GetKeyboardState(nullptr);
 	// Clear previous state memory
 	memset(inputState.keyboard.previousState, 0, SDL_NUM_SCANCODES);
-
 
 	// Mouse (just set everything to 0)
 	inputState.mouse.currentButtons = 0;
@@ -33,7 +35,7 @@ bool InputSystem::initialize()
 
 void InputSystem::close()
 {
-	if(controller != nullptr)
+	if (controller != nullptr)
 	{
 		SDL_GameControllerClose(controller);
 	}
@@ -42,7 +44,7 @@ void InputSystem::close()
 bool InputSystem::processEvent(SDL_Event& event)
 {
 	bool isRunning = true;
-	switch(event.type)
+	switch (event.type)
 	{
 	case SDL_QUIT:
 		isRunning = false;
@@ -74,7 +76,7 @@ void InputSystem::update()
 {
 	// Mouse
 	int x = 0, y = 0;
-	if(inputState.mouse.isRelativeMode)
+	if (inputState.mouse.isRelativeMode)
 	{
 		inputState.mouse.currentButtons = SDL_GetRelativeMouseState(&x, &y);
 	}
@@ -96,7 +98,17 @@ void InputSystem::update()
 	// Triggers
 	inputState.controller.leftTrigger = filter1D(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_TRIGGERLEFT));
 	inputState.controller.rightTrigger = filter1D(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
+
+	// Sticks
+	x = SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX);
+	y = -SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY);
+	inputState.controller.leftStick = filter2D(x, y);
+
+	x = SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_RIGHTX);
+	y = -SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_RIGHTY);
+	inputState.controller.rightStick = filter2D(x, y);
 }
+
 void InputSystem::setMouseCursor(bool isCursorDisplayedP)
 {
 	isCursorDisplayed = isCursorDisplayedP;
