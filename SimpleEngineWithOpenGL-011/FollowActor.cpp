@@ -22,10 +22,10 @@ FollowActor::FollowActor() :
 
 void FollowActor::actorInput(const InputState& inputState)
 {
-	float forwardSpeed = 0.0f;
-	float angularSpeed = 0.0f;
+	//float forwardSpeed = 0.0f;
+	float strafeSpeed = 0.0f;
 	// wasd movement
-	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_W))
+	/*if (inputState.keyboard.getKeyValue(SDL_SCANCODE_W))
 	{
 		forwardSpeed += 400.0f;
 	}
@@ -33,17 +33,18 @@ void FollowActor::actorInput(const InputState& inputState)
 	{
 		forwardSpeed -= 400.0f;
 	}
+	*/
 	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_A))
 	{
-		angularSpeed -= Maths::pi;
+		strafeSpeed -= 1000.0f;
 	}
 	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_D))
 	{
-		angularSpeed += Maths::pi;
+		strafeSpeed += 1000.0f;
 	}
 
-	moveComponent->setForwardSpeed(forwardSpeed);
-	moveComponent->setAngularSpeed(angularSpeed);
+	//moveComponent->setForwardSpeed(forwardSpeed);
+	moveComponent->setStrafeSpeed(strafeSpeed);
 
 	/*
 	// Adjust horizontal distance of camera based on speed
