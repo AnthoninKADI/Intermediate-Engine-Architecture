@@ -49,29 +49,66 @@ void Game::load()
 	Assets::loadMesh("Res\\Meshes\\RacingCar.gpmesh", "Mesh_RacingCar");
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
 
-	/*
-	fps = new FPSActor();
-	orbit = new OrbitActor();
-	path = new SplineActor();
-	*/
-	follow = new FollowActor();
 	
+	fps = new FPSActor();
+	//orbit = new OrbitActor();
+	//path = new SplineActor();
+	//follow = new FollowActor();
+	
+	// Cube for Boat
 
 	CubeActor* a = new CubeActor();
-	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
-	a->setScale(100.0f);
+	a->setPosition(Vector3(5350.0f, 950.0f, 0.0f));
+	a->setScale(300.0f);
+
+	CubeActor* b = new CubeActor();
+	b->setPosition(Vector3(7350.0f, -950.0f, 0.0f));
+	b->setScale(300.0f);
+
+	CubeActor* c = new CubeActor();
+	c->setPosition(Vector3(9350.0f, 800.0f, 0.0f));
+	c->setScale(300.0f);
+
+	CubeActor* d = new CubeActor();
+	d->setPosition(Vector3(11350.0f, 0.0f, 0.0f));
+	d->setScale(300.0f);
+
+	CubeActor* e = new CubeActor();
+	e->setPosition(Vector3(13350.0f, -100.0f, 0.0f));
+	e->setScale(300.0f);
+
+	CubeActor* f = new CubeActor();
+	f->setPosition(Vector3(15350.0f, 600.0f, 0.0f));
+	f->setScale(300.0f);
+
+	CubeActor* g = new CubeActor();
+	g->setPosition(Vector3(17350.0f, -350.0f, 0.0f));
+	g->setScale(300.0f);
+
+	CubeActor* h = new CubeActor();
+	h->setPosition(Vector3(19350.0f, 10.0f, 0.0f));
+	h->setScale(300.0f);
+
+	CubeActor* i = new CubeActor();
+	i->setPosition(Vector3(21350.0f, 400.0f, 0.0f));
+	i->setScale(300.0f);
+
+	CubeActor* j = new CubeActor();
+	j->setPosition(Vector3(23350.0f, -400.0f, 0.0f));
+	j->setScale(300.0f);
+
 	Quaternion q(Vector3::unitY, -Maths::piOver2);
-	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
+	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 2.0f));
 	a->setRotation(q);
 
-	SphereActor* b = new SphereActor();
-	b->setPosition(Vector3(200.0f, -75.0f, 0.0f));
-	b->setScale(3.0f);
+	SphereActor* s = new SphereActor();
+	s->setPosition(Vector3(200.0f, -75.0f, 0.0f));
+	s->setScale(3.0f);
 
 	// Floor and walls
 
 	// Setup floor
-	const float start = -4000.0f;
+	const float start = -10000.0f;
 	const float size = 1000.0f;
 	for (int i = 0; i < 20; i++)
 	{
@@ -81,21 +118,22 @@ void Game::load()
 			p->setPosition(Vector3(start + i * size, start + j * size, -size/2));
 		}
 	}
-	/*
+	
 	// Left/right walls
 	q = Quaternion(Vector3::unitX, Maths::piOver2);
 	for (int i = 0; i < 20; i++)
 	{
 		PlaneActor* p = new PlaneActor();
-		p->setPosition(Vector3(start + i * size, start - size, 0.0f));
+		p->setPosition(Vector3(-200 + i * size, -200 - size, 0.0f));
 		p->setRotation(q);
 
 		p = new PlaneActor();
-		p->setPosition(Vector3(start + i * size, -start + size, 0.0f));
+		p->setPosition(Vector3(-200 + i * size, 200 + size, 0.0f));
 		p->setRotation(q);
 	}
 
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::piOver2));
+	/*
 	// Forward/back walls
 	for (int i = 0; i < 20; i++)
 	{
@@ -165,6 +203,8 @@ void Game::processInput()
 
 void Game::update(float dt)
 {
+
+
 	// Update actors 
 	isUpdatingActors = true;
 	for (auto actor : actors)

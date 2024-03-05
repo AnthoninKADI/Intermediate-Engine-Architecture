@@ -1,6 +1,4 @@
-﻿  FollowActor.cpp
-  FollowCameraComponent.cpp
-  Generating Code...
+﻿  Game.cpp
   SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank

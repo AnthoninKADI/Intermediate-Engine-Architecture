@@ -13,7 +13,7 @@ FollowActor::FollowActor() :
 {
 	meshComponent = new MeshComponent(this);
 	meshComponent->setMesh(Assets::getMesh("Mesh_RacingCar"));
-	setPosition(Vector3(0.0f, 0.0f, -100.0f));
+	setPosition(Vector3(0.0f, 0.0f, 1000.0f));		// Position Car on the map with coordinate
 
 	moveComponent = new MoveComponent(this);
 	cameraComponent = new FollowCameraComponent(this);
@@ -45,6 +45,7 @@ void FollowActor::actorInput(const InputState& inputState)
 
 	//moveComponent->setForwardSpeed(forwardSpeed);
 	moveComponent->setStrafeSpeed(strafeSpeed);
+	
 
 	/*
 	// Adjust horizontal distance of camera based on speed
@@ -57,7 +58,9 @@ void FollowActor::actorInput(const InputState& inputState)
 		cameraComponent->setHorizontalDistance(350.0f);
 	}
 	*/
+
 }
+
 
 void FollowActor::setVisible(bool isVisibleP)
 {
