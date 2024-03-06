@@ -57,19 +57,15 @@ void Game::load()
 	//orbit = new OrbitActor();
 	//path = new SplineActor();
 	follow = new FollowActor();
-	follow->setSpeed(750.0f); // Changer vitesse auto forward
+	follow->setSpeed(750.0f); // Changer vitesse 
 	
 	// Cube for Boat
-
-	Quaternion q(Vector3::unitY, -Maths::piOver2);
-	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 2.0f));
-
 	for (int i = 0; i < 25; i++)
 	{
 		CubeActor* a = new CubeActor();
-		a->setPosition(Vector3(Random::getFloatRange(2000, 40000), Random::getFloatRange(-900, 900), 0.0f));
+		a->setPosition(Vector3(Random::getFloatRange(2000, 5000), Random::getFloatRange(-900, 900), 0.0f));
 		a->setScale(200.f);
-		a->setRotation(q);
+		
 	}
 
 	SphereActor* s = new SphereActor();
@@ -89,7 +85,8 @@ void Game::load()
 			p->setPosition(Vector3(-200 + i * size, start + j * size, 0));
 		}
 	}
-	
+	Quaternion q(Vector3::unitY, -Maths::piOver2);
+	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 2.0f));
 	// Left/right walls
 	q = Quaternion(Vector3::unitX, Maths::piOver2);
 	for (int i = 0; i < 50; i++)
@@ -176,8 +173,6 @@ void Game::processInput()
 
 void Game::update(float dt)
 {
-
-
 	// Update actors 
 	isUpdatingActors = true;
 	for (auto actor : actors)
