@@ -60,17 +60,18 @@ void Game::load()
 	follow->setSpeed(750.0f); // Changer vitesse 
 	
 	// Cube for Boat
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 30; i++)
 	{
 		CubeActor* a = new CubeActor();
-		a->setPosition(Vector3(Random::getFloatRange(2000, 5000), Random::getFloatRange(-900, 900), 0.0f));
+		a->setPosition(Vector3(Random::getFloatRange(1750, 40000), Random::getFloatRange(-900, 900), 0.0f));
 		a->setScale(200.f);
 		
 	}
 
-	SphereActor* s = new SphereActor();
-	s->setPosition(Vector3(200.0f, -75.0f, 0.0f));
-	s->setScale(3.0f);
+	// Sphere Spawn
+	//SphereActor* s = new SphereActor();
+	//s->setPosition(Vector3(200.0f, -75.0f, 0.0f));
+	//s->setScale(3.0f);
 
 	// Floor and walls
 
@@ -94,12 +95,12 @@ void Game::load()
 		PlaneActor* p = new PlaneActor();
 		p->setPosition(Vector3(-200 + i * size, -200 - size, 0.0f));
 		p->setRotation(q);
-		p->setScale(50.0f);
+		p->setScale(75.0f);
 
 		p = new PlaneActor();
 		p->setPosition(Vector3(-200 + i * size, 200 + size, 0.0f));
 		p->setRotation(q);
-		p->setScale(50.0f);
+		p->setScale(75.0f);
 	}
 
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::piOver2));
