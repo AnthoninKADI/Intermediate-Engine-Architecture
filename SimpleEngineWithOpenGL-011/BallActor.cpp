@@ -33,7 +33,7 @@ void BallActor::hitTarget(CubeActor* target)
 	if (target != nullptr)
 	{
 		target->setState(ActorState::Dead);
-		std::cout << "BOB" << std::endl; 
+		//std::cout << "Hit" << std::endl; 
 		
 	}
 	setState(ActorState::Dead);
