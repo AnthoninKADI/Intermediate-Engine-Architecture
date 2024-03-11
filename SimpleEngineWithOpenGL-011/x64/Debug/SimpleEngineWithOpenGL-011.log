@@ -1,27 +1,26 @@
-﻿  Game.cpp
-  SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Cube.gpmesh
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Plane.gpmesh
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\RacingCar.gpmesh
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Rifle.gpmesh
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Sphere.gpmesh
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Target.gpmesh
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.frag
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.vert
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.frag
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.vert
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.frag
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.vert
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Crosshair.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Default.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\HealthBar.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Plane.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\RacingCar.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Radar.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Rifle.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Sphere.png
-  C:\Users\anthonin.kadi\Desktop\Intermediate Engine Architecture\Intermediate Engine Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Target.png
-  24 File(s) copied
+﻿  SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Cube.gpmesh
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Plane.gpmesh
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\RacingCar.gpmesh
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Rifle.gpmesh
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Sphere.gpmesh
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Target.gpmesh
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.frag
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.vert
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.frag
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.vert
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.frag
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.vert
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Crosshair.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Default.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\HealthBar.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Plane.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\RacingCar.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Radar.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Rifle.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Sphere.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Target.png
+  24 fichier(s) copié(s)
