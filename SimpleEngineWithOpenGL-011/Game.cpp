@@ -51,17 +51,57 @@ void Game::load()
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
 
 	fps = new FPSActor();
+	fps->setPosition(Vector3(0.0f, 0.0f, 75.0f));
 	//orbit = new OrbitActor();
 	//path = new SplineActor();
 	//follow = new FollowActor();
 
-	
+	// Pins
+	// Back line
 	CubeActor* a = new CubeActor();
-	a->setPosition(Vector3(200.0f, 0, 0.0f));
-    a->setScale(100.0f);
+	a->setPosition(Vector3(700.0f, -5.0f, 15.0f)); //4
+    a->setScale(Vector3(10.0f, 10.0f, 30.0f));
 
-	Rectangle* r = new Rectangle(200.0f, 0.0f, 10.0f, 50.0f);
-	
+	CubeActor* a1 = new CubeActor();
+	a1->setPosition(Vector3(700.0f, 25.0f, 15.0f)); //4
+	a1->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	CubeActor* a2 = new CubeActor();
+	a2->setPosition(Vector3(700.0f, 55.0f, 15.0f)); //4
+	a2->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	CubeActor* a3 = new CubeActor();
+	a3->setPosition(Vector3(700.0f, 85.0f, 15.0f)); //4
+	a3->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	// Middle line
+	CubeActor* a4 = new CubeActor();
+	a4->setPosition(Vector3(670.0f, 10.0f, 15.0f)); //3
+	a4->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	CubeActor* a5 = new CubeActor();
+	a5->setPosition(Vector3(670.0f, 40.f, 15.0f)); //3
+	a5->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	CubeActor* a6 = new CubeActor();
+	a6->setPosition(Vector3(670.0f, 70.0f, 15.0f)); //3
+	a6->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	// Second line
+	CubeActor* a7 = new CubeActor();
+	a7->setPosition(Vector3(640.0f, 25.0f, 15.0f)); //2
+	a7->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	CubeActor* a8 = new CubeActor();
+	a8->setPosition(Vector3(640.0f, 55.0f, 15.0f)); //2
+	a8->setScale(Vector3(10.0f, 10.0f, 30.0f));
+
+	// Front line
+	CubeActor* a9 = new CubeActor();
+	a9->setPosition(Vector3(610.0f, 40.0f, 15.0f)); //1
+	a9->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	// End Pins
+		
 	Quaternion q(Vector3::unitY, -Maths::piOver2);
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
 	//a->setRotation(q);
@@ -76,14 +116,14 @@ void Game::load()
 	// Floor and walls
 
 	// Setup floor
-	const float start = -1250.0f;
-	const float size = 250.0f;
-	for (int i = 0; i < 30; i++)
+	const float start = 0.0f;
+	const float size = 75.0f;
+	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < 2; j++)
 		{
 			PlaneActor* p = new PlaneActor();
-			p->setPosition(Vector3(0 + i * size, -200 + j * size, -100.0f));
+			p->setPosition(Vector3(0 + i * size, 0 + j * size, 0.0f));
 		}
 	}
 
