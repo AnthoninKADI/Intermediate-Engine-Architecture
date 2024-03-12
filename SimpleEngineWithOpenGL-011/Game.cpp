@@ -56,6 +56,7 @@ void Game::load()
 	//path = new SplineActor();
 	//follow = new FollowActor();
 
+
 	// Pins
 	// Back line
 	CubeActor* a = new CubeActor();
@@ -101,17 +102,25 @@ void Game::load()
 	a9->setPosition(Vector3(610.0f, 40.0f, 15.0f)); //1
 	a9->setScale(Vector3(10.0f, 10.0f, 30.0f));
 	// End Pins
-		
+
+	// 1st Arrow for direction
+	CubeActor* ar1 = new CubeActor();
+	ar1->setPosition(Vector3(8.0f, 38.0f, 0.0f)); 
+	ar1->setScale(Vector3(130.0f, 5.0f, 10.0f));
+
+	// 2nd Arrow for Power
+	CubeActor* ar2 = new CubeActor();
+	ar2->setPosition(Vector3(8.0f, 38.0f, 0.0f)); 
+	ar2->setScale(Vector3(130.0f, 5.0f, 10.0f));
+
 	Quaternion q(Vector3::unitY, -Maths::piOver2);
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
 	//a->setRotation(q);
 	
-
-	/*
+	// Bowling Ball
 	SphereActor* b = new SphereActor();
-	b->setPosition(Vector3(200.0f, -75.0f, 0.0f));
-	b->setScale(3.0f);
-	*/
+	b->setPosition(Vector3(4.0f, 38.0f, 0.0f));
+	b->setScale(Vector3(1.0f, 1.0f, 1.0f));
 
 	// Floor and walls
 
@@ -150,7 +159,8 @@ void Game::load()
 	//	p->setRotation(q);
 
 	//	p = new PlaneActor();
-	//	p->setPosition(Vector3(-start + size, start + i * size, 0.0f));
+	//	p->setPosition(Vector3(750, 100, 0.0f));
+	//	p->setScale(Vector3(0.0f, 100.0f, 0.0f));
 	//	p->setRotation(q);
 	//}
 
@@ -161,21 +171,6 @@ void Game::load()
 	dir.diffuseColor = Vector3(0.78f, 0.88f, 1.0f);
 	dir.specColor = Vector3(0.8f, 0.8f, 0.8f);
 
-	// Corsshair
-	//Actor* crosshairActor = new Actor();
-	//crosshairActor->setScale(2.0f);
-	//crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));
-
-	/*
-	TargetActor* t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, 0.0f, 100.0f));
-	t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, 0.0f, 400.0f));
-	t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, -500.0f, 200.0f));
-	t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, 500.0f, 200.0f));
-	*/
 }
 
 void Game::processInput()
