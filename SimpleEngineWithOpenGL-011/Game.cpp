@@ -51,7 +51,7 @@ void Game::load()
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
 
 	fps = new FPSActor();
-	fps->setPosition(Vector3(0.0f, 0.0f, 75.0f));
+	fps->setPosition(Vector3(-50.0f, 38.0f, 55.0f));
 	//orbit = new OrbitActor();
 	//path = new SplineActor();
 	//follow = new FollowActor();
