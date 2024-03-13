@@ -103,18 +103,16 @@ void Game::load()
 	a9->setScale(Vector3(10.0f, 10.0f, 30.0f));
 	// End Pins
 
-	// 1st Arrow for direction
-	CubeActor* ar1 = new CubeActor();
-	ar1->setPosition(Vector3(8.0f, 38.0f, 0.0f)); 
-	ar1->setScale(Vector3(130.0f, 5.0f, 10.0f));
+	Quaternion q(Vector3::unitZ, -Maths::piOver2/2);
+	//q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
 
-	// 2nd Arrow for Power
-	CubeActor* ar2 = new CubeActor();
-	ar2->setPosition(Vector3(8.0f, 38.0f, 0.0f)); 
-	ar2->setScale(Vector3(130.0f, 5.0f, 10.0f));
+	// Arrow for direction & Power
+	arrow = new CubeActor();
+	arrow->setPosition(Vector3(50.0f, 38.0f, 2.0f));
+	arrow->setScale(Vector3(50.0f, 5.0f, 1.0f));
+	arrow->setRotation(q);
 
-	Quaternion q(Vector3::unitY, -Maths::piOver2);
-	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
+
 	//a->setRotation(q);
 	
 	// Bowling Ball
@@ -246,12 +244,52 @@ void Game::loop()
 {
 	Timer timer;
 	float dt = 0;
+	float scale = 20;
+	bool positive = true;
+	float rotateDire = Maths::piOver2 / 2 * dt;
 	while (isRunning)
 	{
 		float dt = timer.computeDeltaTime() / 1000.0f;
 		processInput();
 		update(dt);
 		render();
+
+		if(!fps->getDirectionClick())
+		{
+			if (arrow->getRotation().z >= -0.45 && arrow->getRotation().z <= -0.38)
+			{
+				rotateDire = Maths::piOver2 / 2 * dt;
+			}
+
+			if (arrow->getRotation().z >= 0.40)
+			{
+				rotateDire = -Maths::piOver2 / 2 * dt;
+			}
+			arrow->rotate(Vector3::unitZ, rotateDire);
+		}
+		
+		if (fps->getDirectionClick() && !fps->getPowerClick())
+		{
+
+			if (scale <= 100 && positive)
+			{
+				scale += 20 * dt;
+			}
+			if (scale <= 110 && !positive)
+			{
+				scale -= 20 * dt;
+			}
+			if (scale >= 100)
+			{
+				positive = false;
+			}
+			if (scale <= 20)
+			{
+				positive = true;
+			}
+			arrow->setScale(Vector3(scale, 10, 1));
+		}
+
 		timer.delayTime();
 	}
 }

@@ -9,6 +9,7 @@
 #include "BallActor.h"
 #include "BoxComponent.h"
 #include "Collisions.h"
+#include "CubeActor.h"
 
 FPSActor::FPSActor() :
 	Actor(),
@@ -53,9 +54,22 @@ void FPSActor::updateActor(float dt)
 void FPSActor::actorInput(const InputState& inputState)
 {
 	// Shoot
-	if (inputState.mouse.getButtonState(1) == ButtonState::Pressed)
+	if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && powerClick && !hasShoot)
 	{
 		shoot();
+		hasShoot = true;
+		directionClick = false;
+		powerClick = false;
+	}
+
+	if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && !powerClick)
+	{
+		powerClick = true;
+	}
+
+	if (inputState.mouse.getButtonState(1) == ButtonState::Pressed)
+	{
+		directionClick = true;
 	}
 }
 
@@ -68,7 +82,7 @@ void FPSActor::shoot()
 	screenPoint.z = 0.9f;
 	Vector3 end = getGame().getRenderer().unproject(screenPoint);
 	// Get direction vector
-	Vector3 dir = end - start;
+	Vector3 dir = Vector3(getGame().getArrow()->getRotation().w, getGame().getArrow()->getRotation().z, 0);
 	dir.normalize();
 	// Spawn a ball
 	BallActor* ball = new BallActor();
