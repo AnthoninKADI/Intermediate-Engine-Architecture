@@ -44,6 +44,18 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Rifle.png", "Rifle");
 	Assets::loadTexture(renderer, "Res\\Textures\\Target.png", "Target");
 
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube0.png", "Cube0");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube1.png", "Cube1");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube2.png", "Cube2");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube3.png", "Cube3");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube4.png", "Cube4");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube5.png", "Cube5");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube6.png", "Cube6");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube7.png", "Cube7");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube8.png", "Cube8");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube9.png", "Cube9");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube10.png", "Cube10");
+
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
 	Assets::loadMesh("Res\\Meshes\\Sphere.gpmesh", "Mesh_Sphere");
@@ -54,53 +66,9 @@ void Game::load()
 	fps = new FPSActor();
 	fps->setPosition(Vector3(-50.0f, 38.0f, 55.0f));
 
-	// Pins
-	// Back line
-	CubeActor* a = new CubeActor();
-	a->setPosition(Vector3(700.0f, -5.0f, 15.0f)); //4
-    a->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	CubeActor* a1 = new CubeActor();
-	a1->setPosition(Vector3(700.0f, 25.0f, 15.0f)); //4
-	a1->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	CubeActor* a2 = new CubeActor();
-	a2->setPosition(Vector3(700.0f, 55.0f, 15.0f)); //4
-	a2->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	CubeActor* a3 = new CubeActor();
-	a3->setPosition(Vector3(700.0f, 85.0f, 15.0f)); //4
-	a3->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	// Middle line
-	CubeActor* a4 = new CubeActor();
-	a4->setPosition(Vector3(670.0f, 10.0f, 15.0f)); //3
-	a4->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	CubeActor* a5 = new CubeActor();
-	a5->setPosition(Vector3(670.0f, 40.f, 15.0f)); //3
-	a5->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	CubeActor* a6 = new CubeActor();
-	a6->setPosition(Vector3(670.0f, 70.0f, 15.0f)); //3
-	a6->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	// Second line
-	CubeActor* a7 = new CubeActor();
-	a7->setPosition(Vector3(640.0f, 25.0f, 15.0f)); //2
-	a7->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	CubeActor* a8 = new CubeActor();
-	a8->setPosition(Vector3(640.0f, 55.0f, 15.0f)); //2
-	a8->setScale(Vector3(10.0f, 10.0f, 30.0f));
-
-	// Front line
-	CubeActor* a9 = new CubeActor();
-	a9->setPosition(Vector3(610.0f, 40.0f, 15.0f)); //1
-	a9->setScale(Vector3(10.0f, 10.0f, 30.0f));
-	// End Pins
-
 	Quaternion q(Vector3::unitZ, -Maths::piOver2/2);
+
+	initiateGame();
 
 	// Arrow for direction & Power
 	arrow = new CubeActor();
@@ -320,4 +288,76 @@ void Game::removePlane(PlaneActor* plane)
 {
 	auto iter = std::find(begin(planes), end(planes), plane);
 	planes.erase(iter);
+}
+
+void Game::addCubes(CubeActor* cube)
+{
+	cubes.emplace_back(cube);
+}
+
+void Game::initiateGame()
+{
+	// Pins
+		// Back line
+	CubeActor* a = new CubeActor();
+	a->setPosition(Vector3(700.0f, -5.0f, 15.0f)); //4
+	a->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a);
+
+	CubeActor* a1 = new CubeActor();
+	a1->setPosition(Vector3(700.0f, 25.0f, 15.0f)); //4
+	a1->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a1);
+
+	CubeActor* a2 = new CubeActor();
+	a2->setPosition(Vector3(700.0f, 55.0f, 15.0f)); //4
+	a2->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a2);
+
+	CubeActor* a3 = new CubeActor();
+	a3->setPosition(Vector3(700.0f, 85.0f, 15.0f)); //4
+	a3->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a3);
+
+	// Middle line
+	CubeActor* a4 = new CubeActor();
+	a4->setPosition(Vector3(670.0f, 10.0f, 15.0f)); //3
+	a4->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a4);
+
+	CubeActor* a5 = new CubeActor();
+	a5->setPosition(Vector3(670.0f, 40.f, 15.0f)); //3
+	a5->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a5);
+
+	CubeActor* a6 = new CubeActor();
+	a6->setPosition(Vector3(670.0f, 70.0f, 15.0f)); //3
+	a6->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a6);
+
+	// Second line
+	CubeActor* a7 = new CubeActor();
+	a7->setPosition(Vector3(640.0f, 25.0f, 15.0f)); //2
+	a7->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a7);
+
+	CubeActor* a8 = new CubeActor();
+	a8->setPosition(Vector3(640.0f, 55.0f, 15.0f)); //2
+	a8->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a8);
+
+	// Front line
+	CubeActor* a9 = new CubeActor();
+	a9->setPosition(Vector3(610.0f, 40.0f, 15.0f)); //1
+	a9->setScale(Vector3(10.0f, 10.0f, 30.0f));
+	addCubes(a9);
+	// End Pins
+}
+
+void Game::deleteCubes(vector<CubeActor*>& cubes)
+{
+	for (int i = cubes.size() - 1; i >= 0; --i)
+	{
+		cubes[i]->setState(Actor::ActorState::Dead);
+	}
 }

@@ -35,11 +35,20 @@ FPSActor::FPSActor() :
 void FPSActor::updateActor(float dt)
 {
 	Actor::updateActor(dt);
-	delay -= 1;
-	if(delay >=0)
+	delay -= 1 * dt;
+	if(shootCount>= 2 && delay <=0)
+	{
+		getGame().deleteCubes(getGame().getCubes());
+		getGame().initiateGame();
+		shootCount = 0;
+	}
+
+	if (delay >= 0)
 	{
 		hasShoot = false;
+		getGame().getArrow()->setScale((Vector3(50.0f, 5.0f, 1.0f)));
 	}
+
 
 	Vector3 modelPosition = getPosition();
 	modelPosition += getForward() * MODEL_OFFSET.x;
@@ -56,7 +65,7 @@ void FPSActor::updateActor(float dt)
 void FPSActor::actorInput(const InputState& inputState)
 {
 	// Shoot
-	if (delay <= 0)
+	if (delay <= 0 && shootCount < 2)
 	{
 		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && powerClick && !hasShoot)
 		{
@@ -64,6 +73,7 @@ void FPSActor::actorInput(const InputState& inputState)
 			hasShoot = true;
 			directionClick = false;
 			powerClick = false;
+			shootCount++;
 			delay = 5.0f;
 		}
 
@@ -72,7 +82,7 @@ void FPSActor::actorInput(const InputState& inputState)
 			powerClick = true;
 		}
 
-		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed)
+		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && !hasShoot)
 		{
 			directionClick = true;
 		}

@@ -32,6 +32,7 @@ private:
 	bool hasShoot = false;
 	float delay = 0;
 	bool canShoot = true;
+	int shootCount = 0;
 };
 
 const Vector3 MODEL_OFFSET = Vector3(10.0f, 10.0f, -10.0f);

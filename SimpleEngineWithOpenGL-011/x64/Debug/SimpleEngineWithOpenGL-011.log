@@ -1,21 +1,4 @@
-﻿  Actor.cpp
-  BallActor.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\BallActor.cpp(25,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  BallMoveComponent.cpp
-  BoxComponent.cpp
-  Camera.cpp
-  CameraComponent.cpp
-  CircleCollisionComponent.cpp
-  CubeActor.cpp
-  CubeMoveComponent.cpp
-  FPSActor.cpp
-  Game.cpp
-  Main.cpp
-  MeshComponent.cpp
-C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\MeshComponent.cpp(28,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  PlaneActor.cpp
-  SpriteComponent.cpp
-  Generating Code...
+﻿  FPSActor.cpp
   SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank
@@ -33,6 +16,17 @@ C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngi
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.vert
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Crosshair.png
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube0.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube1.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube10.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube2.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube3.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube4.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube5.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube6.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube7.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube8.png
+  C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube9.png
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Default.png
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\HealthBar.png
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Plane.png
@@ -41,4 +35,4 @@ C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngi
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Rifle.png
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Sphere.png
   C:\Users\kadia\Desktop\GitHubProject\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Target.png
-  24 fichier(s) copié(s)
+  35 fichier(s) copié(s)
