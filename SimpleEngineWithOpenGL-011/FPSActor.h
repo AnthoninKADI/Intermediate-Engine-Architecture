@@ -30,6 +30,8 @@ private:
 	bool directionClick = false;
 	bool powerClick = false;
 	bool hasShoot = false;
+	float delay = 0;
+	bool canShoot = true;
 };
 
 const Vector3 MODEL_OFFSET = Vector3(10.0f, 10.0f, -10.0f);
