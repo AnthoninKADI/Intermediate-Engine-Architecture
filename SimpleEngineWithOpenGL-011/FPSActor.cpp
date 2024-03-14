@@ -87,6 +87,7 @@ void FPSActor::shoot()
 	// Spawn a ball
 	BallActor* ball = new BallActor();
 	ball->setPlayer(this);
+	ball->setArrow(getGame().getArrow());
 	ball->setPosition(Vector3(0.0f, 38.0f, 10.0f));
 	// Rotate the ball to face new direction
 	ball->rotateToNewForward(dir);

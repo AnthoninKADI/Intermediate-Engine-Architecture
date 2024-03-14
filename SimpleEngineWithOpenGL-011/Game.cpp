@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <algorithm>
 #include "Rectangle.h"
+#include "CubeMoveComponent.h"
 
 bool Game::initialize()
 {
@@ -21,7 +22,7 @@ bool Game::initialize()
 	bool isRendererInit = renderer.initialize(window);
 	bool isInputInit = inputSystem.initialize();
 
-	return isWindowInit && isRendererInit && isInputInit; // Return bool && bool && bool ...to detect error
+	return isWindowInit && isRendererInit && isInputInit; 
 }
 
 void Game::load()
@@ -52,10 +53,6 @@ void Game::load()
 
 	fps = new FPSActor();
 	fps->setPosition(Vector3(-50.0f, 38.0f, 55.0f));
-	//orbit = new OrbitActor();
-	//path = new SplineActor();
-	//follow = new FollowActor();
-
 
 	// Pins
 	// Back line
@@ -104,16 +101,13 @@ void Game::load()
 	// End Pins
 
 	Quaternion q(Vector3::unitZ, -Maths::piOver2/2);
-	//q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
 
 	// Arrow for direction & Power
 	arrow = new CubeActor();
 	arrow->setPosition(Vector3(50.0f, 38.0f, 2.0f));
 	arrow->setScale(Vector3(50.0f, 5.0f, 1.0f));
 	arrow->setRotation(q);
-
-
-	//a->setRotation(q);
+	arrow->setArrow(arrow);
 	
 	// Bowling Ball
 	SphereActor* b = new SphereActor();
@@ -121,7 +115,6 @@ void Game::load()
 	b->setScale(Vector3(1.0f, 1.0f, 1.0f));
 
 	// Floor and walls
-
 	// Setup floor
 	const float start = 0.0f;
 	const float size = 75.0f;
@@ -133,34 +126,6 @@ void Game::load()
 			p->setPosition(Vector3(0 + i * size, 0 + j * size, 0.0f));
 		}
 	}
-
-	//// Left/right walls
-	//q = Quaternion(Vector3::unitX, Maths::piOver2);
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	PlaneActor* p = new PlaneActor();
-	//	p->setPosition(Vector3(start + i * size, start - size, 0.0f));
-	//	p->setRotation(q);
-
-	//	p = new PlaneActor();
-	//	p->setPosition(Vector3(start + i * size, -start + size, 0.0f));
-	//	p->setRotation(q);
-	//}
-
-	//q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::piOver2));
-	//
-	//// Forward/back walls
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	PlaneActor* p = new PlaneActor();
-	//	p->setPosition(Vector3(start - size, start + i * size, 0.0f));
-	//	p->setRotation(q);
-
-	//	p = new PlaneActor();
-	//	p->setPosition(Vector3(750, 100, 0.0f));
-	//	p->setScale(Vector3(0.0f, 100.0f, 0.0f));
-	//	p->setRotation(q);
-	//}
 
 	// Setup lights
 	renderer.setAmbientLight(Vector3(0.2f, 0.2f, 0.2f));
@@ -247,6 +212,7 @@ void Game::loop()
 	float scale = 20;
 	bool positive = true;
 	float rotateDire = Maths::piOver2 / 2 * dt;
+	arrow->cubeMove->getArrow()->removeComponent(arrow->cubeMove);
 	while (isRunning)
 	{
 		float dt = timer.computeDeltaTime() / 1000.0f;
