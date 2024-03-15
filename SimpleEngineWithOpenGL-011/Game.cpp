@@ -113,6 +113,11 @@ void Game::load()
 		
 	}
 
+	// Bowling Ball
+	SphereActor* bBall = new SphereActor();
+	bBall->setPosition(Vector3(4.0f, 38.0f, 0.0f));
+	bBall->setScale(Vector3(1.0f, 1.0f, 1.0f));
+
 	// Setup lights
 	renderer.setAmbientLight(Vector3(0.2f, 0.2f, 0.2f));
 	DirectionalLight& dir = renderer.getDirectionalLight();
@@ -378,17 +383,4 @@ void Game::deleteCubes(vector<CubeActor*>& cubes)
 	{
 		cubes[i]->setState(Actor::ActorState::Dead);
 	}
-}
-
-void Game::spawnBall()
-{
-	// Bowling Ball
-	bBall = new SphereActor();
-	bBall->setPosition(Vector3(4.0f, 38.0f, 0.0f));
-	bBall->setScale(Vector3(1.0f, 1.0f, 1.0f));
-}
-
-void Game::deleteBall()
-{
-	bBall->setState(Actor::ActorState::Dead);
 }

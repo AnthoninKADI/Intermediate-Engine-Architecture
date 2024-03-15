@@ -45,9 +45,6 @@ public:
 	void addCubes(class CubeActor* cube);
 	void removePlane(class PlaneActor* plane);
 	void initiateGame();
-	void spawnBall();
-	void deleteBall();
-	class SphereActor* getBall() { return bBall; }
 	void deleteCubes(vector<CubeActor*>& cubes);
 	vector<CubeActor*>& getCubes() { return cubes; }
 	vector<PlaneActor*>& getPlanes() { return planes; }
@@ -77,7 +74,6 @@ private:
 	class FollowActor* follow;
 	class SpriteComponent* crosshair;
 	class CubeActor* arrow;
-	class SphereActor* bBall;
 	vector<PlaneActor*> planes;
 	vector<CubeActor*> cubes;
 	int score;

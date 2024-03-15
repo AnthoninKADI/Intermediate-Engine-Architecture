@@ -50,10 +50,9 @@ void FPSActor::updateActor(float dt)
 		getGame().setScore(0);
 	}
 
-	if (delay >= 0)
+	if (delay <= 0 && hasShoot)
 	{
 		hasShoot = false;
-		getGame().getArrow()->setScale((Vector3(50.0f, 5.0f, 1.0f)));
 	}
 
 
@@ -67,11 +66,6 @@ void FPSActor::updateActor(float dt)
 	FPSModel->setRotation(q);
 
 	fixCollisions();
-	std::cout << hasShoot;
-	if (delay <= 0 && !getGame().getBall() && !hasShoot)
-	{
-		getGame().spawnBall();
-	}
 }
 
 void FPSActor::actorInput(const InputState& inputState)
@@ -82,12 +76,12 @@ void FPSActor::actorInput(const InputState& inputState)
 		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && powerClick && !hasShoot)
 		{
 			shoot();
-			getGame().deleteBall();
 			hasShoot = true;
 			directionClick = false;
 			powerClick = false;
 			shootCount++;
 			delay = 6.0f;
+
 		}
 
 		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && !powerClick)
