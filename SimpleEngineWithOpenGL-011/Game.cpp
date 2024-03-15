@@ -95,6 +95,29 @@ void Game::load()
 		}
 	}
 
+	// Left/right walls
+	q = Quaternion(Vector3::unitX, Maths::piOver2);
+	for (int i = 0; i < 10; i++)
+	{
+		PlaneActor* p = new PlaneActor();
+		p->setPosition(Vector3(start + i * size, 120, -47.0f));
+		p->setRotation(q);
+
+		p = new PlaneActor();
+		p->setPosition(Vector3(start + i * size, -45, -47.0f));
+		p->setRotation(q);
+
+		
+		p = new PlaneActor();
+		p->setPosition(Vector3(start + i * size, 120 + 40 , -45.0f));
+		p->setRotation(q);
+
+		p = new PlaneActor();
+		p->setPosition(Vector3(start + i * size, -120 + 40, -45.0f));
+		p->setRotation(q);
+		
+	}
+
 	// Setup lights
 	renderer.setAmbientLight(Vector3(0.2f, 0.2f, 0.2f));
 	DirectionalLight& dir = renderer.getDirectionalLight();
