@@ -1,6 +1,4 @@
-﻿  BallActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\BallActor.cpp(25,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-Assets.obj : warning LNK4099: PDB '' was not found with 'Assets.obj' or at ''; linking object as if no debug info
+﻿  FPSActor.cpp
   SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
   C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
   C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank

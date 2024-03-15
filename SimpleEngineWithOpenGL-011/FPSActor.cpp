@@ -36,11 +36,18 @@ void FPSActor::updateActor(float dt)
 {
 	Actor::updateActor(dt);
 	delay -= 1 * dt;
+	if (shootCount == 2 && delay <= 2)
+	{
+		CubeActor* score = new CubeActor(std::to_string(getGame().getScore()));
+		score->setScale(Vector3(2.0f, 1.5f, 1.5f));
+		getGame().addCubes(score);
+	}
 	if(shootCount>= 2 && delay <=0)
 	{
 		getGame().deleteCubes(getGame().getCubes());
 		getGame().initiateGame();
 		shootCount = 0;
+		getGame().setScore(0);
 	}
 
 	if (delay >= 0)
@@ -60,6 +67,11 @@ void FPSActor::updateActor(float dt)
 	FPSModel->setRotation(q);
 
 	fixCollisions();
+	std::cout << hasShoot;
+	if (delay <= 0 && !getGame().getBall() && !hasShoot)
+	{
+		getGame().spawnBall();
+	}
 }
 
 void FPSActor::actorInput(const InputState& inputState)
@@ -70,11 +82,12 @@ void FPSActor::actorInput(const InputState& inputState)
 		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && powerClick && !hasShoot)
 		{
 			shoot();
+			getGame().deleteBall();
 			hasShoot = true;
 			directionClick = false;
 			powerClick = false;
 			shootCount++;
-			delay = 5.0f;
+			delay = 6.0f;
 		}
 
 		if (inputState.mouse.getButtonState(1) == ButtonState::Pressed && directionClick && !powerClick)
@@ -86,6 +99,7 @@ void FPSActor::actorInput(const InputState& inputState)
 		{
 			directionClick = true;
 		}
+
 	}
 }
 

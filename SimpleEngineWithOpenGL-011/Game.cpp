@@ -44,17 +44,17 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Rifle.png", "Rifle");
 	Assets::loadTexture(renderer, "Res\\Textures\\Target.png", "Target");
 
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube0.png", "Cube0");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube1.png", "Cube1");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube2.png", "Cube2");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube3.png", "Cube3");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube4.png", "Cube4");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube5.png", "Cube5");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube6.png", "Cube6");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube7.png", "Cube7");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube8.png", "Cube8");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube9.png", "Cube9");
-	Assets::loadTexture(renderer, "Res\\Textures\\Cube10.png", "Cube10");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube0.png", "0");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube1.png", "1");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube2.png", "2");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube3.png", "3");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube4.png", "4");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube5.png", "5");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube6.png", "6");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube7.png", "7");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube8.png", "8");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube9.png", "9");
+	Assets::loadTexture(renderer, "Res\\Textures\\Cube10.png", "10");
 
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
@@ -77,11 +77,6 @@ void Game::load()
 	arrow->setRotation(q);
 	arrow->setArrow(arrow);
 	
-	// Bowling Ball
-	SphereActor* b = new SphereActor();
-	b->setPosition(Vector3(4.0f, 38.0f, 0.0f));
-	b->setScale(Vector3(1.0f, 1.0f, 1.0f));
-
 	// Floor and walls
 	// Setup floor
 	const float start = 0.0f;
@@ -321,7 +316,7 @@ void Game::addCubes(CubeActor* cube)
 void Game::initiateGame()
 {
 	// Pins
-		// Back line
+	// Back line
 	CubeActor* a = new CubeActor();
 	a->setPosition(Vector3(700.0f, -5.0f, 15.0f)); //4
 	a->setScale(Vector3(10.0f, 10.0f, 30.0f));
@@ -383,4 +378,17 @@ void Game::deleteCubes(vector<CubeActor*>& cubes)
 	{
 		cubes[i]->setState(Actor::ActorState::Dead);
 	}
+}
+
+void Game::spawnBall()
+{
+	// Bowling Ball
+	bBall = new SphereActor();
+	bBall->setPosition(Vector3(4.0f, 38.0f, 0.0f));
+	bBall->setScale(Vector3(1.0f, 1.0f, 1.0f));
+}
+
+void Game::deleteBall()
+{
+	bBall->setState(Actor::ActorState::Dead);
 }

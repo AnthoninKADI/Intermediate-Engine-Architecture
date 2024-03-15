@@ -16,11 +16,20 @@ CubeActor::CubeActor() : lifetimeSpan(10.0f)
 	cubeMove = new CubeMoveComponent(this);
 }
 
+CubeActor::CubeActor(std::string spriteNameP) : spriteName(spriteNameP)
+{
+	MeshComponent* mc = new MeshComponent(this);
+	mc->setMesh(Assets::getMesh("Mesh_Cube"));
+	SpriteComponent* sp = new SpriteComponent(this, Assets::getTexture(spriteName));
+	sp->setVisible(true);
+	cubeMove = new CubeMoveComponent(this);
+}
+
 void CubeActor::updateActor(float dt)
 {
 	Actor::updateActor(dt);
 	if (gotHit) lifetimeSpan -= 1;
-	if (lifetimeSpan < 0.0f || cubeMove->getOwner().getPosition().x >= 1000)
+	if (lifetimeSpan < 0.0f || cubeMove->getOwner().getPosition().x >= 800)
 	{
 		getGame().setScore();
 		setState(ActorState::Dead);
@@ -39,7 +48,7 @@ void CubeActor::hitPins(CubeActor* pins)
 	if (pins != nullptr)
 	{
 		gotHit = true;
-		pins->lifetimeSpan = 2.0;
+		pins->lifetimeSpan = 2.0f;
 		Vector3 dir = getForward();
 		dir = Vector3::reflect(getForward(), Vector3::normalize(pins->getPosition()));
 		dir.z = 0;
