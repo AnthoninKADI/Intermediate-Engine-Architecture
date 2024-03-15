@@ -1,5 +1,6 @@
-﻿  Game.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Game.cpp(382,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  BallActor.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\BallActor.cpp(25,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Assets.obj : warning LNK4099: PDB '' was not found with 'Assets.obj' or at ''; linking object as if no debug info
   SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
   C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
   C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank

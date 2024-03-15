@@ -12,7 +12,7 @@ BallActor::BallActor() : Actor(), lifetimeSpan(10.0f), audio(nullptr), ballMove(
 	MeshComponent* mc = new MeshComponent(this);
 	mc->setMesh(Assets::getMesh("Mesh_Sphere"));
 	ballMove = new BallMoveComponent(this);
-	ballMove->setForwardSpeed(4*getGame().getArrow()->getScale().x);
+	ballMove->setForwardSpeed(6*getGame().getArrow()->getScale().x);
 	BoxComponent* bc = new BoxComponent(this);
 	bc->setObjectBox(Assets::getMesh("Mesh_Sphere").getBox());
 }
