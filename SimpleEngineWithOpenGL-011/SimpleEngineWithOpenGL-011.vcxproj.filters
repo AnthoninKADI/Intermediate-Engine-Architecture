@@ -108,6 +108,9 @@
     </ClCompile>
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="UIScreen.cpp" />
+    <ClCompile Include="PauseScreen.cpp" />
+    <ClCompile Include="Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -225,6 +228,9 @@
     </ClInclude>
     <ClInclude Include="Font.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="UIScreen.h" />
+    <ClInclude Include="PauseScreen.h" />
+    <ClInclude Include="Button.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

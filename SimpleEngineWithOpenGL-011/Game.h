@@ -11,6 +11,11 @@
 
 using std::vector;
 
+enum class GameState
+{
+	Gameplay, Pause, Quit
+};
+
 class Game
 {
 public:
@@ -26,7 +31,7 @@ public:
 	Game& operator=(Game&&) = delete;
 
 private:
-	Game() : isRunning(true), isUpdatingActors(false), fps(nullptr), crosshair(nullptr) {}
+	Game() : state(GameState::Gameplay), isUpdatingActors(false), fps(nullptr), crosshair(nullptr) {}
 
 public:
 	bool initialize();
@@ -44,7 +49,11 @@ public:
 	void addPlane(class PlaneActor* plane);
 	void removePlane(class PlaneActor* plane);
 	vector<PlaneActor*>& getPlanes() { return planes; }
-
+	const vector<class UIScreen*>& getUIStack() { return UIStack; }
+	void pushUI(class UIScreen* screen);
+	GameState getState() const { return state; }
+	void setState(GameState stateP);
+	InputSystem& getInputSystem() { return inputSystem; }
 
 private:
 	void processInput();
@@ -56,6 +65,7 @@ private:
 	RendererOGL renderer;
 	InputSystem inputSystem;
 	PhysicsSystem physicsSystem;
+	GameState state;
 
 	bool isUpdatingActors;
 	vector<Actor*> actors;
@@ -66,4 +76,6 @@ private:
 	class FollowActor* follow;
 	class SpriteComponent* crosshair;
 	vector<PlaneActor*> planes;
+	vector<class UIScreen*> UIStack;
+
 };
