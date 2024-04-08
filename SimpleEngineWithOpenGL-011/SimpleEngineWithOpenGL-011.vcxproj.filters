@@ -106,6 +106,8 @@
     <ClCompile Include="Quaternion.cpp">
       <Filter>Maths</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp" />
+    <ClCompile Include="Color.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -221,6 +223,8 @@
     <ClInclude Include="Quaternion.h">
       <Filter>Maths</Filter>
     </ClInclude>
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="Color.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

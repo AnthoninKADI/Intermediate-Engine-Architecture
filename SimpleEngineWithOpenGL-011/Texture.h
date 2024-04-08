@@ -12,6 +12,7 @@ public:
 	void unload();
 	//bool loadSDL(RendererSDL& rendererP, const string& filenameP);
 	bool loadOGL(RendererOGL& rendererP, const string& filenameP);
+	void createFromSurface(struct SDL_Surface* surface);
 
 	inline SDL_Texture* toSDLTexture() const { return SDLTexture; }
 	void updateInfo(int& widthOut, int& heightOut);
