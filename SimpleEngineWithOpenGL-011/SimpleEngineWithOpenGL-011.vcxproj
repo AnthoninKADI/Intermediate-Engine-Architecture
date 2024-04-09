@@ -151,6 +151,7 @@
     <ClCompile Include="BackgroundSpriteComponent.cpp" />
     <ClCompile Include="BallActor.cpp" />
     <ClCompile Include="BallMoveComponent.cpp" />
+    <ClCompile Include="BoneTransform.cpp" />
     <ClCompile Include="BoxComponent.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -193,6 +194,7 @@
     <ClCompile Include="RendererOGL.cpp" />
     <ClCompile Include="Assets.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="SphereActor.cpp" />
     <ClCompile Include="Spline.cpp" />
@@ -216,6 +218,7 @@
     <ClInclude Include="BackgroundSpriteComponent.h" />
     <ClInclude Include="BallActor.h" />
     <ClInclude Include="BallMoveComponent.h" />
+    <ClInclude Include="BoneTransform.h" />
     <ClInclude Include="BoxComponent.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
@@ -260,6 +263,7 @@
     <ClInclude Include="RendererOGL.h" />
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="SphereActor.h" />
     <ClInclude Include="Spline.h" />

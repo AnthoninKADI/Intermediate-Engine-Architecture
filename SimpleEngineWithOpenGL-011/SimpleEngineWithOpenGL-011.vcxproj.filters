@@ -114,6 +114,8 @@
     <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="TargetComponent.cpp" />
+    <ClCompile Include="BoneTransform.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -237,6 +239,8 @@
     <ClInclude Include="Dialog.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="TargetComponent.h" />
+    <ClInclude Include="BoneTransform.h" />
+    <ClInclude Include="Skeleton.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">
