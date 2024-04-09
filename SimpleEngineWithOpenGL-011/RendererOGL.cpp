@@ -7,6 +7,7 @@
 #include "Log.h"
 #include "Game.h"
 #include "UIScreen.h"
+#include "SkeletalMeshComponent.h"
 
 #include <GL/glew.h>
 #include <SDL_image.h>
@@ -67,7 +68,7 @@ bool RendererOGL::initialize(Window& windowP)
 		return false;
 	}
 
-	spriteVertexArray = new VertexArray(spriteVertices, 4, indices, 6);
+	spriteVertexArray = new VertexArray(spriteVertices, 4, VertexArrayLayout::PosNormTex, indices, 6);
 	return true;
 }
 
@@ -135,10 +136,12 @@ void RendererOGL::drawMeshes()
 	// Enable depth buffering/disable alpha blend
 	glEnable(GL_DEPTH_TEST);
 	glDisable(GL_BLEND);
+	Matrix4 viewproj = view * projection;
+	// Draw classic meshes
 	Shader& shader = Assets::getShader("Phong");
 	shader.use();
 	// Update view-projection matrix
-	shader.setMatrix4("uViewProj", view * projection);
+	shader.setMatrix4("uViewProj", viewproj);
 	// Lights
 	setLightUniforms(shader);
 	// Draw
@@ -147,6 +150,18 @@ void RendererOGL::drawMeshes()
 		if (mc->getVisible())
 		{
 			mc->draw(Assets::getShader("Phong"));
+		}
+	}
+	// Draw skeletal meshes
+	Shader& skinnedShader = Assets::getShader("Skinned");
+	skinnedShader.use();
+	skinnedShader.setMatrix4("uViewProj", viewproj);
+	setLightUniforms(skinnedShader);
+	for (auto sk : skMeshes)
+	{
+		if (sk->getVisible())
+		{
+			sk->draw(skinnedShader);
 		}
 	}
 }
@@ -204,6 +219,10 @@ void RendererOGL::drawSprite(const Actor& actor, const Texture& tex, Rectangle s
 
 void RendererOGL::addMesh(MeshComponent* mesh)
 {
+	if (mesh->getSkeletal())
+	{
+		SkeletalMeshComponent* sk = static_cast<SkeletalMeshComponent*>(mesh);
+	}
 	meshes.emplace_back(mesh);
 }
 

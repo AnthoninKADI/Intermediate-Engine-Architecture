@@ -52,6 +52,7 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Radar.png", "Radar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Blip.png", "Blip");
 	Assets::loadTexture(renderer, "Res\\Textures\\RadarArrow.png", "RadarArrow");
+	Assets::loadTexture(renderer, "Res\\Textures\\CatWarrior.png", "CatWarrior");
 
 
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
@@ -60,10 +61,16 @@ void Game::load()
 	Assets::loadMesh("Res\\Meshes\\Rifle.gpmesh", "Mesh_Rifle");
 	Assets::loadMesh("Res\\Meshes\\RacingCar.gpmesh", "Mesh_RacingCar");
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
+	Assets::loadMesh("Res\\Meshes\\CatWarrior.gpmesh", "Mesh_CatWarrior");
 
 	Assets::loadFont("Res\\Fonts\\Carlito-Regular.ttf", "Carlito");
 
 	Assets::loadText("Res\\Localization\\English.gptext");
+
+	Assets::loadSkeleton("Res\\Animations\\CatWarrior.gpskel", "Skel_CatWarrior");
+	Assets::loadAnimation("Res\\Animations\\CatActionIdle.gpanim", "CatActionIdle");
+	Assets::loadAnimation("Res\\Animations\\CatRunMOBA.gpanim", "CatRunMOBA");
+	Assets::loadAnimation("Res\\Animations\\CatRunSprint.gpanim", "CatRunSprint");
 
 	fps = new FPSActor();
 	//follow = new FollowActor();

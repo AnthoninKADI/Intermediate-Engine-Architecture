@@ -11,6 +11,8 @@ std::map<std::string, Shader> Assets::shaders;
 std::map<std::string, Mesh> Assets::meshes;
 std::map<std::string, Font> Assets::fonts;
 std::map<std::string, string> Assets::texts;
+std::map<std::string, Skeleton> Assets::skeletons;
+std::map<std::string, Animation> Assets::animations;
 
 Texture Assets::loadTexture(IRenderer& renderer, const string& filename, const string& name)
 {
@@ -101,6 +103,41 @@ void Assets::loadText(const string& filename)
     }
     Log::info("Loaded localization file: " + filename);
 }
+
+Skeleton Assets::loadSkeleton(const string& filename, const string& name)
+{
+    skeletons[name] = loadSkeletonFromFile(filename);
+    return skeletons[name];
+}
+
+Skeleton& Assets::getSkeleton(const std::string& name)
+{
+    if(skeletons.find(name) == end (skeletons))
+    {
+        std::ostringstream loadError;
+        loadError << "Skeleton " << name << " does not exist in assets manager.";
+        Log::error(LogCategory::Application, loadError.str());
+    }
+    return skeletons[name];
+}
+
+Animation Assets::loadAnimation(const string& filename, const string& name)
+{
+    animations[name] = loadAnimationFromFile(filename);
+    return animations[name];
+}
+
+Animation& Assets::getAnimation(const std::string& name)
+{
+    if (animations.find(name) == end(animations))
+    {
+        std::ostringstream loadError;
+        loadError << "Animation " << name << " does not exist in assets manager.";
+        Log::error(LogCategory::Application, loadError.str());
+    }
+    return animations[name];
+}
+
 const string& Assets::getText(const string& key)
 {
     static string errorMsg("**KEY NOT FOUND**");
@@ -133,6 +170,14 @@ void Assets::clear()
     for (auto iter : fonts)
         iter.second.unload();
     fonts.clear();
+    // Delete all skeletons
+    for (auto iter : skeletons)
+        iter.second.unload();
+    skeletons.clear();
+    // Delete all animations
+    for (auto iter : animations)
+        iter.second.unload();
+    animations.clear();
 }
 
 Texture Assets::loadTextureFromFile(IRenderer& renderer, const string& filename)
@@ -387,4 +432,111 @@ Font Assets::loadFontFromFile(const string& filename)
     }
     Log::info("Loaded font " + filename);
     return font;
+}
+
+Skeleton Assets::loadSkeletonFromFile(const string& filename)
+{
+    Skeleton skeleton;
+    std::ifstream file(filename);
+    if(!file.is_open())
+    {
+        std::ostringstream s;
+        s << "File not found: Skeleton" << filename;
+        Log::error(LogCategory::Application, s.str());
+    }
+    std::stringstream fileStream;
+    fileStream << file.rdbuf();
+    std::string contents = fileStream.str();
+    rapidjson::StringStream jsonStr(contents.c_str());
+    rapidjson::Document doc;
+    doc.ParseStream(jsonStr);
+    if (!doc.IsObject())
+    {
+        std::ostringstream s;
+        s << "Skeleton " << filename << " is not valid json";
+        Log::error(LogCategory::Application, s.str());
+    }
+    int ver = doc["version"].GetInt();
+    // Check the metadata
+    if (ver != 1)
+    {
+        std::ostringstream s;
+        s << "Animation " << filename << " is not valid format";
+        Log::error(LogCategory::Application, s.str());
+    }
+    const rapidjson::Value& sequence = doc["sequence"];
+    if(!sequence.IsObject())
+    {
+        std::ostringstream s;
+        s << "Animation " << filename << " doesn't have a sequence.";
+        Log::error(LogCategory::Application, s.str());
+    }
+    const rapidjson::Value& frames = sequence["frames"];
+    const rapidjson::Value& length = sequence["length"];
+    const rapidjson::Value& bonecount = sequence["bonecount"];
+    if (!frames.IsUint() || !length.IsDouble() || !bonecount.IsUint())
+    {
+        std::ostringstream s;
+        s << "Sequence " << filename << " has invalid frames, length, or bone count.";
+        Log::error(LogCategory::Application, s.str());
+    }
+    animation.setNbFrames(frames.GetUint());
+    animation.setDuration(length.GetDouble());
+    animation.setNbBones(bonecount.GetUint());
+    animation.setFrameDuration(animation.getDuration() / (animation.getnbFrames() - 1));
+    vector<vector<BoneTransform>> animationTracks;
+    animationTracks.resize(animation.getNbBones());
+    const rapidjson::Value& tracks = sequence["tracks"];
+    if (!tracks.IsArray())
+    {
+        std::ostringstream s;
+        s << "Sequence " << filename << " missinga tracks array.";
+        Log::error(LogCategory::Application, s.str());
+    }
+    for (rapidjson::SizeType i = 0; i < tracks.Size(); i++)
+    {
+        if (!tracks[i].IsObject())
+        {
+            std::ostringstream s;
+            s << "Animation " << filename << ": Track element " << i << " is invalid.";
+            Log::error(LogCategory::Application, s.str());
+        }
+        size_t boneIndex = tracks[i]["bone"].GetUint();
+        const rapidjson::Value& transforms = tracks[i]["transfroms"];
+        if (!transforms.IsArray())
+        {
+            std::ostringstream s;
+            s << "Animation " << filename << ": Track element " << i << " is missiong transforms.";
+            Log::error(LogCategory::Application, s.str());
+        }
+        BoneTransform temp;
+        if (transforms.Size() < animation.getNbFrames())
+        {
+            std::ostringstream s;
+            s << "Animation " << filename << ": Track element " << i << " has fewer frames than expected.";
+            Log::error(LogCategory::Application, s.str());
+        }
+        for (rapidjson::SizeType j = 0; j < transforms.Size(); j++)
+        {
+            const rapidjson::Value& rot = transforms[j]["rot"];
+            const rapidjson::Value& trans = transforms[j]["trans"];
+            if (!rot.IsArray() || !trans.IsArray())
+            {
+                std::ostringstream s;
+                s << "Skeleton " << filename << ": Bone " << i << "is invalid.";
+                Log::error(LogCategory::Application, s.str());
+            }
+            temp.rotation.x = rot[0].GetDouble();
+            temp.rotation.y = rot[1].GetDouble();
+            temp.rotation.z = rot[2].GetDouble();
+            temp.rotation.w = rot[3].GetDouble();
+            temp.translation.x = trans[0].GetDouble();
+            temp.translation.y = trans[1].GetDouble();
+            temp.translation.z = trans[2].GetDouble();
+            animationTracks[boneIndex].emplace_back(temp);
+        }
+    }
+    animation.setTracks(animationTracks);
+    Log::info("Loaded animation " + filename);
+    return animation;
 }

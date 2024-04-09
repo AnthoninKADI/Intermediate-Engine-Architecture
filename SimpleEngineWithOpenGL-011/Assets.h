@@ -5,6 +5,8 @@
 #include "Shader.h"
 #include "Mesh.h"
 #include "Font.h"
+#include "Skeleton.h"
+#include "Animation.h"
 using std::map;
 using std::string;
 
@@ -20,14 +22,29 @@ public:
     static std::map<std::string, Mesh> meshes;
     static std::map<std::string, Font> fonts;
     static std::map<std::string, string> texts;
+    static std::map<std::string, Skeleton> skeletons;
+    static std::map<std::string, Animation> animations;
 
     // Loads a texture from file
     static Texture loadTexture(IRenderer& renderer, const string& filename, const string& name);
 
     // Loads texts from a localization file
     static void loadText(const string& filename);
+
     //retrieves a localized text
     static const string& getText(const string& key);
+
+    // Loads a skeleton from file
+    static Skeleton loadSkeleton(const string& filename, const string& name);
+
+    // Retrieves a stored skeleton
+    static Skeleton& getSkeleton(const std::string& name);
+
+    // Loads a skeletal animation from file
+    static Animation loadAnimation(const string& filename, const string& name);
+
+    // Retrieves a stored skeletal animation
+    static Animation& getAnimation(const std::string& name);
 
     // Retrieves a stored texture
     static Texture& getTexture(const std::string& name);
@@ -70,5 +87,6 @@ private:
 
     static Mesh loadMeshFromFile(const string& filename);
     static Font loadFontFromFile(const string& filename);
-
+    static Skeleton loadSkeletonFromFile(const string& filename);
+    static Animation loadAnimationFromFile(const string& filename);
 };

@@ -116,6 +116,7 @@
     <ClCompile Include="TargetComponent.cpp" />
     <ClCompile Include="BoneTransform.cpp" />
     <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="Animation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -241,6 +242,7 @@
     <ClInclude Include="TargetComponent.h" />
     <ClInclude Include="BoneTransform.h" />
     <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="Animation.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

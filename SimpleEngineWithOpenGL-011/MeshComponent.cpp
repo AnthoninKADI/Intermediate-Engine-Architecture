@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "Mesh.h"
 
-MeshComponent::MeshComponent(Actor* owner) : Component(owner), mesh(nullptr), textureIndex(0), isVisible(true)
+MeshComponent::MeshComponent(Actor* owner, bool isSkeletalP) : Component(owner), mesh(nullptr), textureIndex(0), isVisible(true), isSkeletal(isSkeletalP)
 {
 	owner->getGame().getRenderer().addMesh(this);
 }
