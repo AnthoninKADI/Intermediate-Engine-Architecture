@@ -217,29 +217,29 @@ void Game::update(float dt)
 		{
 			delete deadActor;
 		}
+	}
 
-		// Update UI screens
-		for (auto ui : UIStack)
+	// Update UI screens
+	for (auto ui : UIStack)
+	{
+		if (ui->getState() == UIState::Active)
 		{
-			if (ui->getState() == UIState::Active)
-			{
-				ui->update(dt);
-			}
+			ui->update(dt);
 		}
+	}
 
-		// Delete any UIScreens that are closed
-		auto iter = UIStack.begin();
-		while (iter != UIStack.end())
+	// Delete any UIScreens that are closed
+	auto iter = UIStack.begin();
+	while (iter != UIStack.end())
+	{
+		if ((*iter)->getState() == UIState::Closing)
 		{
-			if ((*iter)->getState() == UIState::Closing)
-			{
-				delete* iter;
-				iter = UIStack.erase(iter);
-			}
-			else
-			{
-				++iter;
-			}
+			delete* iter;
+			iter = UIStack.erase(iter);
+		}
+		else
+		{
+			++iter;
 		}
 	}
 	
