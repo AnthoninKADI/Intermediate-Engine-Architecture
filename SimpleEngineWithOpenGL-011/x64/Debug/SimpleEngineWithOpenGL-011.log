@@ -1,73 +1,111 @@
 ﻿  Actor.cpp
-  AnimSpriteComponent.cpp
-  BackgroundSpriteComponent.cpp
-  BallActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
   BallMoveComponent.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
   BoxComponent.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
   Camera.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
   CameraComponent.cpp
-  Color.cpp
-  Cube.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  CubeActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  FollowActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  Font.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  Dialog.cpp
   FPSActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
   Game.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  Main.cpp
-  Mesh.cpp
-  MeshComponent.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\MeshComponent.cpp(28,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  OrbitActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  PlaneActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  Generating Code...
-  Compiling...
-  RendererOGL.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  Assets.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(270,36): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.cpp(287,101): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-  SphereActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  SpriteComponent.cpp
-  TargetActor.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
-  Texture.cpp
-  UIScreen.cpp
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(55,17): error C2535: 'void Assets::clear(void)': member function already defined or declared
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Assets.h(46,17): message : see declaration of 'Assets::clear'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\PauseScreen.h(9,42): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  HUD.cpp
 C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(44,43): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(26,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
 C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(45,49): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(26,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
 C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Component.h(18,51): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(26,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
 C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(16,1): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
 C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.cpp(41,3): error C2664: 'void UIScreen::drawTexture(Shader &,texture *,const Vector2 &,float)': cannot convert argument 2 from 'Texture *' to 'texture *'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.cpp(41,23): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(30,7): message : see declaration of 'UIScreen::drawTexture'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.cpp(41,3): message : while trying to match the argument list '(Shader, Texture *, Vector2)'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.cpp(53,16): error C2511: 'void UIScreen::drawTexture(Shader &,Texture *,const Vector2 &,float)': overloaded member function not found in 'UIScreen'
-C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(16,7): message : see declaration of 'UIScreen'
+  Main.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  MeshComponent.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\MeshComponent.cpp(28,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  PauseScreen.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(44,43): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(45,49): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Component.h(18,51): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(16,1): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  PlaneActor.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  RendererOGL.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  SpriteComponent.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  TargetComponent.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,50): warning C4099: 'InputState': type name first seen using 'struct' now seen using 'class'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
+  UIScreen.cpp
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(44,43): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Actor.h(45,49): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Component.h(18,51): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\UIScreen.h(28,40): message : see declaration of 'InputState'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(16,1): warning C4099: 'InputState': type name first seen using 'class' now seen using 'struct'
+C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\InputSystem.h(15,8): message : see declaration of 'InputState'
   Generating Code...
+  SimpleEngineWithOpenGL-011.vcxproj -> C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\x64\Debug\SimpleEngineWithOpenGL-011.exe
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.bank
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Audio\Master Bank.strings.bank
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Fonts\Carlito-Regular.ttf
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Localization\English.gptext
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Localization\Russian.gptext
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Cube.gpmesh
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Plane.gpmesh
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\RacingCar.gpmesh
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Rifle.gpmesh
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Sphere.gpmesh
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Meshes\Target.gpmesh
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.frag
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\BasicMesh.vert
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.frag
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Phong.vert
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.frag
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Shaders\Sprite.vert
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Arrow.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Blip.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\BlipDown.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\BlipUp.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\ButtonBlue.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\ButtonYellow.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Crosshair.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\CrosshairGreen.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\CrosshairRed.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Cube1.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Default.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\DialogBG.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\HealthBar.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Plane.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\RacingCar.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Radar.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\RadarArrow.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Rifle.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Sphere.png
+  C:\Users\anthonin.kadi\Documents\GitHub\Intermediate-Engine-Architecture\SimpleEngineWithOpenGL-011\Res\Textures\Target.png
+  38 File(s) copied

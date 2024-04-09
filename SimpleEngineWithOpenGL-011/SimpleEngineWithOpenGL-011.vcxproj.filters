@@ -111,6 +111,9 @@
     <ClCompile Include="UIScreen.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Dialog.cpp" />
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="TargetComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -231,6 +234,9 @@
     <ClInclude Include="UIScreen.h" />
     <ClInclude Include="PauseScreen.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Dialog.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="TargetComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

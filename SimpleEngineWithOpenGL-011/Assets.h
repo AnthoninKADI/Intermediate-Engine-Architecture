@@ -19,9 +19,15 @@ public:
     static std::map<std::string, Shader> shaders;
     static std::map<std::string, Mesh> meshes;
     static std::map<std::string, Font> fonts;
+    static std::map<std::string, string> texts;
 
     // Loads a texture from file
     static Texture loadTexture(IRenderer& renderer, const string& filename, const string& name);
+
+    // Loads texts from a localization file
+    static void loadText(const string& filename);
+    //retrieves a localized text
+    static const string& getText(const string& key);
 
     // Retrieves a stored texture
     static Texture& getTexture(const std::string& name);
@@ -50,9 +56,6 @@ public:
 
     // Retrieves a stored font
     static Font& getFont(const std::string& name);
-
-    // Properly de-allocates all loaded ressources
-    static void clear();
 
 private:
     Assets() {}

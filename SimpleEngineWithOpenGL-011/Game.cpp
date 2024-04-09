@@ -41,10 +41,18 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Plane.png", "Plane");
 	Assets::loadTexture(renderer, "Res\\Textures\\Radar.png", "Radar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Sphere.png", "Sphere");
-	Assets::loadTexture(renderer, "Res\\Textures\\Crosshair.png", "Crosshair");
 	Assets::loadTexture(renderer, "Res\\Textures\\RacingCar.png", "RacingCar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Rifle.png", "Rifle");
 	Assets::loadTexture(renderer, "Res\\Textures\\Target.png", "Target");
+	Assets::loadTexture(renderer, "Res\\Textures\\ButtonYellow.png", "ButtonYellow");
+	Assets::loadTexture(renderer, "Res\\Textures\\ButtonBlue.png", "ButtonBlue");
+	Assets::loadTexture(renderer, "Res\\Textures\\DialogBG.png", "DialogBG");
+	Assets::loadTexture(renderer, "Res\\Textures\\Crosshair.png", "Crosshair");
+	Assets::loadTexture(renderer, "Res\\Textures\\CrosshairRed.png", "CrosshairRed");
+	Assets::loadTexture(renderer, "Res\\Textures\\Radar.png", "Radar");
+	Assets::loadTexture(renderer, "Res\\Textures\\Blip.png", "Blip");
+	Assets::loadTexture(renderer, "Res\\Textures\\RadarArrow.png", "RadarArrow");
+
 
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
@@ -55,8 +63,13 @@ void Game::load()
 
 	Assets::loadFont("Res\\Fonts\\Carlito-Regular.ttf", "Carlito");
 
+	Assets::loadText("Res\\Localization\\English.gptext");
+
 	fps = new FPSActor();
 	//follow = new FollowActor();
+
+	// HUD
+	hud = new HUD();
 
 	CubeActor* a = new CubeActor();
 	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
@@ -116,7 +129,7 @@ void Game::load()
 	dir.diffuseColor = Vector3(0.78f, 0.88f, 1.0f);
 	dir.specColor = Vector3(0.8f, 0.8f, 0.8f);
 
-	// Corsshair
+	// Crosshair
 	Actor* crosshairActor = new Actor();
 	crosshairActor->setScale(2.0f);
 	crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));
@@ -144,6 +157,7 @@ void Game::processInput()
 	}
 	inputSystem.update();
 	const InputState& input = inputSystem.getInputState();
+
 	if(state == GameState::Gameplay)
 	{
 		// Escape: pause game
@@ -165,7 +179,7 @@ void Game::processInput()
 	{
 		if(!UIStack.empty())
 		{
-			UIStack.back()->processinput(input);
+			UIStack.back()->processInput(input);
 		}
 	}
 }
@@ -212,6 +226,7 @@ void Game::update(float dt)
 				ui->update(dt);
 			}
 		}
+
 		// Delete any UIScreens that are closed
 		auto iter = UIStack.begin();
 		while (iter != UIStack.end())
@@ -273,6 +288,11 @@ void Game::close()
 	SDL_Quit();
 }
 
+void Game::setState(GameState stateP)
+{
+	state = stateP;
+}
+
 void Game::addActor(Actor* actor)
 {
 	if (isUpdatingActors)
@@ -319,7 +339,3 @@ void Game::pushUI(UIScreen* screen)
 	UIStack.emplace_back(screen);
 }
 
-void Game::setState(GameState stateP)
-{
-	state = stateP;
-}

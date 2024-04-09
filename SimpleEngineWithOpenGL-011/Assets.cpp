@@ -10,6 +10,7 @@ std::map<std::string, Texture> Assets::textures;
 std::map<std::string, Shader> Assets::shaders;
 std::map<std::string, Mesh> Assets::meshes;
 std::map<std::string, Font> Assets::fonts;
+std::map<std::string, string> Assets::texts;
 
 Texture Assets::loadTexture(IRenderer& renderer, const string& filename, const string& name)
 {
@@ -60,6 +61,58 @@ Mesh& Assets::getMesh(const std::string& name)
         Log::error(LogCategory::Application, loadError.str());
     }
     return meshes[name];
+}
+
+void Assets::loadText(const string& filename)
+{
+    texts.clear();
+    // Try to open the file
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        std::ostringstream loadError;
+        loadError << "Text file " << filename << " not found.";
+        Log::error(LogCategory::Application, loadError.str());
+        return;
+    }
+    // Read the entire file to a string stream
+    std::stringstream fileStream;
+    fileStream << file.rdbuf();
+    std::string contents = fileStream.str();
+    // Open this file in rapidJSON
+    rapidjson::StringStream jsonStr(contents.c_str());
+    rapidjson::Document doc;
+    doc.ParseStream(jsonStr);
+    if (!doc.IsObject())
+    {
+        std::ostringstream loadError;
+        loadError << "Text file " << filename << " is not valid JSON.";
+        Log::error(LogCategory::Application, loadError.str());
+        return;
+    }
+    // Parse the text map
+    const rapidjson::Value& actions = doc["TextMap"];
+    for (rapidjson::Value::ConstMemberIterator itr = actions.MemberBegin(); itr != actions.MemberEnd(); ++ itr)
+    {
+        if (itr->name.IsString() && itr->value.IsString())
+        {
+            texts.emplace(itr->name.GetString(), itr->value.GetString());
+        }
+    }
+    Log::info("Loaded localization file: " + filename);
+}
+const string& Assets::getText(const string& key)
+{
+    static string errorMsg("**KEY NOT FOUND**");
+    auto iter = texts.find(key);
+    if(iter != end(texts))
+    {
+        return iter->second;
+    }
+    else
+    {
+        return errorMsg;
+    }
 }
 
 void Assets::clear()

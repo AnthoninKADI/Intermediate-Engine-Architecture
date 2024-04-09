@@ -1,6 +1,7 @@
 #include "Font.h"
 #include "Log.h"
 #include "Texture.h"
+#include "Assets.h"
 #include <sstream>
 
 Font::Font()
@@ -34,7 +35,7 @@ void Font::unload()
 	}
 }
 
-Texture* Font::renderText(const string& text, const Vector3& color, int pointSize)
+Texture* Font::renderText(const string& textKey, const Vector3& color, int pointSize)
 {
 	Texture* texture = nullptr;
 
@@ -50,8 +51,9 @@ Texture* Font::renderText(const string& text, const Vector3& color, int pointSiz
 	if (iter != fontData.end())
 	{
 		TTF_Font* font = iter->second;
+		const string& actualText = Assets::getText(textKey);
 		// Draw this to a surface (blended for alpha)
-		SDL_Surface* surf = TTF_RenderUTF8_Blended(font, text.c_str(), sdlColor);
+		SDL_Surface* surf = TTF_RenderUTF8_Blended(font, actualText.c_str(), sdlColor);
 		if (surf != nullptr)
 		{
 			texture = new Texture();
@@ -65,7 +67,6 @@ Texture* Font::renderText(const string& text, const Vector3& color, int pointSiz
 		loadError << "Point size " << pointSize << " is unsupported.";
 		Log::error(LogCategory::Application, loadError.str());
 	}
-
 	return texture;
 }
 
@@ -73,3 +74,4 @@ void Font::addFontData(int size, TTF_Font* fontSize)
 {
 	fontData.emplace(size, fontSize);
 }
+

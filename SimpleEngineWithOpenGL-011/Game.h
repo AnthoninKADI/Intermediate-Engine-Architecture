@@ -8,6 +8,7 @@
 #include "InputSystem.h"
 #include "PhysicsSystem.h"
 #include "PlaneActor.h"
+#include "HUD.h"
 
 using std::vector;
 
@@ -44,6 +45,7 @@ public:
 	void removeActor(Actor* actor);
 	RendererOGL& getRenderer() { return renderer; }
 	PhysicsSystem& getPhysicsSystem() { return physicsSystem; }
+	HUD* getHUD() { return hud; }
 
 	// Game-specific
 	void addPlane(class PlaneActor* plane);
@@ -54,6 +56,7 @@ public:
 	GameState getState() const { return state; }
 	void setState(GameState stateP);
 	InputSystem& getInputSystem() { return inputSystem; }
+	class FPSActor* getPlayer() { return fps; }
 
 private:
 	void processInput();
@@ -66,6 +69,7 @@ private:
 	InputSystem inputSystem;
 	PhysicsSystem physicsSystem;
 	GameState state;
+	HUD* hud;
 
 	bool isUpdatingActors;
 	vector<Actor*> actors;

@@ -9,7 +9,7 @@ public:
 	Button(const string& name, class Font& font, std::function<void()> onClick, const Vector2& position, const Vector2& dimensions);
 	~Button();
 	class Texture* getNameTex() { return nameTex; }
-	const Vector2& getposition() const { return position; }
+	const Vector2& getPosition() const { return position; }
 	bool getHighlighted() const { return isHighlighted; }
 	void setName(const string& nameP);
 	void setHighlighted(bool isHighlightedP);

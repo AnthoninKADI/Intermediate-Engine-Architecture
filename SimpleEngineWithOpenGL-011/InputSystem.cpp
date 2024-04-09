@@ -3,6 +3,7 @@
 #include <cstring>
 #include <SDL_mouse.h>
 #include "Maths.h"
+#include "Window.h"
 
 InputSystem::InputSystem() :
 	inputState(),
@@ -87,6 +88,12 @@ void InputSystem::update()
 
 	inputState.mouse.position.x = static_cast<float>(x);
 	inputState.mouse.position.y = static_cast<float>(y);
+	if (!inputState.mouse.isRelativeMode)
+	{
+		// We want mouse coordinates to be between minus half the screen's size and plus half the screen size
+		inputState.mouse.position.x -= WINDOW_WIDTH * 0.5f;
+		inputState.mouse.position.y = WINDOW_HEIGHT * 0.5f - inputState.mouse.position.y;
+	}
 
 	// Controller
 	// Buttons
