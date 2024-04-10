@@ -34,6 +34,7 @@ void Game::load()
 	Assets::loadShader("Res\\Shaders\\Sprite.vert", "Res\\Shaders\\Sprite.frag", "", "", "", "Sprite");
 	Assets::loadShader("Res\\Shaders\\Phong.vert", "Res\\Shaders\\Phong.frag", "", "", "", "Phong");
 	Assets::loadShader("Res\\Shaders\\BasicMesh.vert", "Res\\Shaders\\BasicMesh.frag", "", "", "", "BasicMesh");
+	Assets::loadShader("Res\\Shaders\\Skinned.vert", "Res\\Shaders\\Phong.frag", "", "", "", "Skinned");
 
 	Assets::loadTexture(renderer, "Res\\Textures\\Default.png", "Default");
 	Assets::loadTexture(renderer, "Res\\Textures\\Cube.png", "Cube");
@@ -68,12 +69,13 @@ void Game::load()
 	Assets::loadText("Res\\Localization\\English.gptext");
 
 	Assets::loadSkeleton("Res\\Animations\\CatWarrior.gpskel", "Skel_CatWarrior");
+
 	Assets::loadAnimation("Res\\Animations\\CatActionIdle.gpanim", "CatActionIdle");
 	Assets::loadAnimation("Res\\Animations\\CatRunMOBA.gpanim", "CatRunMOBA");
 	Assets::loadAnimation("Res\\Animations\\CatRunSprint.gpanim", "CatRunSprint");
 
-	fps = new FPSActor();
-	//follow = new FollowActor();
+	//fps = new FPSActor();
+	player = new FollowActor();
 
 	// HUD
 	hud = new HUD();

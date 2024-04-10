@@ -179,6 +179,7 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="MatrixPalette.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="MouseState.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="RendererOGL.cpp" />
     <ClCompile Include="Assets.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SkeletalMeshComponent.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="SphereActor.cpp" />
@@ -249,6 +251,7 @@
     <ClInclude Include="Log.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="MatrixPalette.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="MouseState.h" />
@@ -265,6 +268,7 @@
     <ClInclude Include="RendererOGL.h" />
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="SkeletalMeshComponent.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="SphereActor.h" />
@@ -289,6 +293,7 @@
     <None Include="BasicMesh.vert" />
     <None Include="Phong.frag" />
     <None Include="Phong.vert" />
+    <None Include="Skinned.vert" />
     <None Include="Sprite.frag" />
     <None Include="Sprite.vert" />
     <None Include="Transform.vert" />

@@ -86,14 +86,6 @@ void RendererOGL::draw()
 	drawUI();
 }
 
-void RendererOGL::drawUI()
-{
-	for (auto ui : Game::instance().getUIStack())
-	{
-		ui->draw(Assets::getShader("Sprite"));
-	}
-}
-
 void RendererOGL::endDraw()
 {
 	SDL_GL_SwapWindow(window->getSDLWindow());
@@ -136,12 +128,14 @@ void RendererOGL::drawMeshes()
 	// Enable depth buffering/disable alpha blend
 	glEnable(GL_DEPTH_TEST);
 	glDisable(GL_BLEND);
-	Matrix4 viewproj = view * projection;
+
+	Matrix4 viewProj = view * projection;
+
 	// Draw classic meshes
 	Shader& shader = Assets::getShader("Phong");
 	shader.use();
 	// Update view-projection matrix
-	shader.setMatrix4("uViewProj", viewproj);
+	shader.setMatrix4("uViewProj", viewProj);
 	// Lights
 	setLightUniforms(shader);
 	// Draw
@@ -152,10 +146,11 @@ void RendererOGL::drawMeshes()
 			mc->draw(Assets::getShader("Phong"));
 		}
 	}
+
 	// Draw skeletal meshes
 	Shader& skinnedShader = Assets::getShader("Skinned");
 	skinnedShader.use();
-	skinnedShader.setMatrix4("uViewProj", viewproj);
+	skinnedShader.setMatrix4("uViewProj", viewProj);
 	setLightUniforms(skinnedShader);
 	for (auto sk : skMeshes)
 	{
@@ -208,6 +203,14 @@ void RendererOGL::drawSprites()
 	}
 }
 
+void RendererOGL::drawUI()
+{
+	for (auto ui : Game::instance().getUIStack())
+	{
+		ui->draw(Assets::getShader("Sprite"));
+	}
+}
+
 void RendererOGL::drawSprite(const Actor& actor, const Texture& tex, Rectangle srcRect, Vector2 origin, Flip flip) const
 {
 	Matrix4 scaleMat = Matrix4::createScale((float)tex.getWidth(), (float)tex.getHeight(), 1.0f);
@@ -222,14 +225,27 @@ void RendererOGL::addMesh(MeshComponent* mesh)
 	if (mesh->getSkeletal())
 	{
 		SkeletalMeshComponent* sk = static_cast<SkeletalMeshComponent*>(mesh);
+		skMeshes.emplace_back(sk);
 	}
-	meshes.emplace_back(mesh);
+	else
+	{
+		meshes.emplace_back(mesh);
+	}
 }
 
 void RendererOGL::removeMesh(MeshComponent* mesh)
 {
-	auto iter = std::find(begin(meshes), end(meshes), mesh);
-	meshes.erase(iter);
+	if (mesh->getSkeletal())
+	{
+		SkeletalMeshComponent* sk = static_cast<SkeletalMeshComponent*>(mesh);
+		auto iter = std::find(skMeshes.begin(), skMeshes.end(), sk);
+		skMeshes.erase(iter);
+	}
+	else
+	{
+		auto iter = std::find(begin(meshes), end(meshes), mesh);
+		meshes.erase(iter);
+	}
 }
 
 void RendererOGL::setViewMatrix(const Matrix4& viewP)

@@ -32,7 +32,7 @@ public:
 	Game& operator=(Game&&) = delete;
 
 private:
-	Game() : state(GameState::Gameplay), isUpdatingActors(false), fps(nullptr), crosshair(nullptr) {}
+	Game() : state(GameState::Gameplay), isUpdatingActors(false), player(nullptr), crosshair(nullptr) {}
 
 public:
 	bool initialize();
@@ -56,7 +56,8 @@ public:
 	GameState getState() const { return state; }
 	void setState(GameState stateP);
 	InputSystem& getInputSystem() { return inputSystem; }
-	class FPSActor* getPlayer() { return fps; }
+	//class FPSActor* getPlayer() { return fps; }
+	class FollowActor* getPlayer() { return player; }
 
 private:
 	void processInput();
@@ -77,7 +78,7 @@ private:
 
 	// Game specific
 	class FPSActor* fps;
-	class FollowActor* follow;
+	class FollowActor* player;
 	class SpriteComponent* crosshair;
 	vector<PlaneActor*> planes;
 	vector<class UIScreen*> UIStack;

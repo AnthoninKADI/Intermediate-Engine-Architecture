@@ -1,7 +1,7 @@
 #include "FollowActor.h"
 #include "MoveComponent.h"
 #include "FollowCameraComponent.h"
-#include "MeshComponent.h"
+#include "SkeletalMeshComponent.h"
 #include "Assets.h"
 #include "InputSystem.h"
 
@@ -11,8 +11,11 @@ FollowActor::FollowActor() :
 	cameraComponent(nullptr),
 	meshComponent(nullptr)
 {
-	meshComponent = new MeshComponent(this);
-	meshComponent->setMesh(Assets::getMesh("Mesh_RacingCar"));
+	meshComponent = new SkeletalMeshComponent(this);
+	meshComponent->setMesh(Assets::getMesh("Mesh_CatWarrior"));
+	meshComponent->setSkeleton(Assets::getSkeleton("Skel_CatWarrior"));
+	meshComponent->playAnimation(&Assets::getAnimation("CatActionIdle"));
+
 	setPosition(Vector3(0.0f, 0.0f, -100.0f));
 
 	moveComponent = new MoveComponent(this);
@@ -27,11 +30,11 @@ void FollowActor::actorInput(const InputState& inputState)
 	// wasd movement
 	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_W))
 	{
-		forwardSpeed += 400.0f;
+		forwardSpeed += 800.0f;
 	}
 	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_S))
 	{
-		forwardSpeed -= 400.0f;
+		forwardSpeed -= 800.0f;
 	}
 	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_A))
 	{
@@ -40,6 +43,19 @@ void FollowActor::actorInput(const InputState& inputState)
 	if (inputState.keyboard.getKeyValue(SDL_SCANCODE_D))
 	{
 		angularSpeed += Maths::pi;
+	}
+
+	// Did we just start moving?
+	if (!isMoving && !Maths::nearZero(forwardSpeed))
+	{
+		isMoving = true;
+		meshComponent->playAnimation(&Assets::getAnimation("CatRunSprint"), 1.25f);
+	}
+	// Or did we just stop moving?
+	else if (isMoving && Maths::nearZero(forwardSpeed))
+	{
+		isMoving = false;
+		meshComponent->playAnimation(&Assets::getAnimation("CatActionIdle"));
 	}
 
 	moveComponent->setForwardSpeed(forwardSpeed);

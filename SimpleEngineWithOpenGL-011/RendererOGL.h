@@ -58,7 +58,7 @@ private:
 
 	std::vector<class MeshComponent*> meshes;
 	std::vector<class SpriteComponent*> sprites;
-	std::vector<class SkeletalMeshComponent**> skMeshes;
+	std::vector<class SkeletalMeshComponent*> skMeshes;
 
 	Vector3 ambientLight;
 	DirectionalLight dirLight;

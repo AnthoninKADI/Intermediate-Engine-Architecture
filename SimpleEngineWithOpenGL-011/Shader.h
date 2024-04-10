@@ -49,6 +49,7 @@ public:
 	void setVector4f(const GLchar* name, const Vector4& value);
 	*/
 	void setMatrix4(const GLchar* name, const Matrix4& matrix);
+	void setMatrix4Multiple(const GLchar* name, const Matrix4* matrices, unsigned int count);
 
 private:
 	GLuint vs;

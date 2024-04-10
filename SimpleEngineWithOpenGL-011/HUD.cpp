@@ -2,7 +2,7 @@
 #include "Assets.h"
 #include "Game.h"
 #include "TargetComponent.h"
-#include "FPSActor.h"
+#include "FollowActor.h"
 
 HUD::HUD() :
 	UIScreen(),
@@ -16,19 +16,23 @@ HUD::HUD() :
 	blipTex = &Assets::getTexture("Blip");
 	radarArrow = &Assets::getTexture("RadarArrow");
 }
+
 HUD::~HUD()
 {
 }
+
 void HUD::update(float dt)
 {
 	UIScreen::update(dt);
 	updateCrosshair(dt);
 	updateRadar(dt);
 }
+
 void HUD::draw(Shader& shader)
 {
 	Texture* cross = isTargetingEnemy ? crosshairEnemy : crosshair;
 	drawTexture(shader, cross, Vector2::zero, 2.0f);
+
 	const Vector2 radarPosition{ -390.0f, 275.0f };
 	drawTexture(shader, radar, radarPosition, 1.0f);
 	for (Vector2& blip : blips)
@@ -37,21 +41,23 @@ void HUD::draw(Shader& shader)
 	}
 	drawTexture(shader, radarArrow, radarPosition);
 }
+
 void HUD::addTargetComponent(TargetComponent* tc)
 {
 	targetComponents.emplace_back(tc);
 }
+
 void HUD::removeTargetComponent(TargetComponent* tc)
 {
-	auto iter = std::find(begin(targetComponents),
-		end(targetComponents), tc);
+	auto iter = std::find(begin(targetComponents), end(targetComponents), tc);
 	targetComponents.erase(iter);
 }
+
 void HUD::updateCrosshair(float dt)
 {
 	// Reset to regular cursor
 	isTargetingEnemy = false;
-	// Make a line in segment
+	// Make a line segment
 	const float cAimDist = 5000.0f;
 	Vector3 start, dir;
 	Game::instance().getRenderer().getScreenDirection(start, dir);
@@ -60,7 +66,7 @@ void HUD::updateCrosshair(float dt)
 	PhysicsSystem::CollisionInfo info;
 	if (Game::instance().getPhysicsSystem().segmentCast(l, info))
 	{
-		for(auto tc : targetComponents)
+		for (auto tc : targetComponents)
 		{
 			if (&tc->getOwner() == info.actor)
 			{
@@ -70,20 +76,22 @@ void HUD::updateCrosshair(float dt)
 		}
 	}
 }
+
 void HUD::updateRadar(float dt)
 {
 	// Clear blip positions from last frame
 	blips.clear();
+
 	// Convert player position to radar coordinates (x forward, z up)
 	Vector3 playerPos = Game::instance().getPlayer()->getPosition();
 	Vector2 playerPos2D{ playerPos.y, playerPos.x };
 	// Ditto for player forward
-	Vector3 playerForward =
-		Game::instance().getPlayer()->getForward();
+	Vector3 playerForward = Game::instance().getPlayer()->getForward();
 	Vector2 playerForward2D{ playerForward.x, playerForward.y };
+
 	// Use atan2 to get rotation of radar
 	float angle = Maths::atan2(playerForward2D.y, playerForward2D.x);
-	// Make a 2d rotation matrix
+	// Make a 2D rotation matrix
 	Matrix4 rotMat = Matrix4::createRotationZ(angle);
 
 	// Get positions of blips
@@ -91,18 +99,22 @@ void HUD::updateRadar(float dt)
 	{
 		Vector3 targetPos = tc->getOwner().getPosition();
 		Vector2 actorPos2D{ targetPos.y, targetPos.x };
+
 		// Calculate vector between player and target
 		Vector2 playerToTarget = actorPos2D - playerPos2D;
+
 		// See if within range
-		if ( playerToTarget.lengthSq() <= (radarRange * radarRange))
+		if (playerToTarget.lengthSq() <= (radarRange * radarRange))
 		{
 			// Convert playerToTarget into an offset from
 			// the center of the on-screen radar
 			Vector3 blipPosition{ playerToTarget.x, playerToTarget.y, 0.0f };
 			blipPosition *= radarRadius / radarRange;
-			// rotate blipPosition
+
+			// Rotate blipPosition
 			blipPosition = Vector3::transform(blipPosition, rotMat);
 			blips.emplace_back(Vector2(blipPosition.x, blipPosition.y));
 		}
 	}
+
 }

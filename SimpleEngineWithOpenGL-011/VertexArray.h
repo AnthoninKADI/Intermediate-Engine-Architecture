@@ -12,10 +12,16 @@ constexpr unsigned int indices[] = {
 	2, 3, 0
 };
 
+enum class VertexArrayLayout
+{
+	PosNormTex,
+	PosNormSkinTex
+};
+
 class VertexArray
 {
 public:
-	VertexArray(const float* verticesP, unsigned int nbVerticesP, const unsigned int* indicesP, unsigned int nbIndicesP);
+	VertexArray(const void* verticesP, unsigned int nbVerticesP, VertexArrayLayout layout, const unsigned int* indicesP, unsigned int nbIndicesP);
 	~VertexArray();
 
 	void setActive();
